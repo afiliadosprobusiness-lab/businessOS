@@ -20,19 +20,19 @@ Keep this doc short and current. It exists to help contributors and agents quick
 
 - Signup/login: Not applicable.
 - Core user flow: User lands on homepage, reviews sections (problem, solution, pricing), then clicks `Agendar demo`.
-- Demo booking flow: `Agendar demo` opens Cal.com popup/modal using `@calcom/embed-react` (`meet-demo-businessos`).
+- Demo booking flow: `Agendar demo` opens a centered browser popup to Cal.com booking page (`afiliados-pro-business/meet-demo-businessos`).
 - Payments/subscriptions (if any): Informational pricing only; no checkout in this repo.
 
 ## Architecture Notes
 
 - High-level modules: Page sections under `src/components`, assembled in `src/pages/Index.tsx`.
-- Critical dependencies/integrations: Cal.com embed React SDK.
-- Caching/perf considerations: Static content, lazy-loaded Cal iframe/popup by external SDK.
+- Critical dependencies/integrations: Direct Cal.com booking URL opened in popup window.
+- Caching/perf considerations: Static content; booking happens outside app in separate window.
 
 ## Environment Variables
 
 - Required: None.
-- Optional: None currently (Cal namespace/link are hardcoded in `src/components/CalBooking.tsx`).
+- Optional: None currently (Cal booking URL is hardcoded in `src/components/CalBooking.tsx`).
 
 ## Operational Notes
 
@@ -47,3 +47,4 @@ Keep this doc short and current. It exists to help contributors and agents quick
 - 2026-02-13: Added new SVG favicon and linked it in `index.html`.
 - 2026-02-13: Improved final CTA button visual hierarchy and interaction states.
 - 2026-02-13: Added handling for Cal `routed` events with `externalRedirectUrl` to open external links (e.g., WhatsApp) in a new tab from the parent window.
+- 2026-02-13: Replaced embedded Cal iframe modal with browser popup window to avoid WhatsApp frame-block errors (`X-Frame-Options`).

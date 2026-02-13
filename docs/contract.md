@@ -1,5 +1,5 @@
 # Contrato del Proyecto - BusinessOS Landing
-Version: 2.0.0
+Version: 2.0.1
 
 Este documento es la fuente de verdad mecanica del sistema.
 Ningun cambio puede romper este contrato sin versionado explicito.
@@ -8,7 +8,7 @@ Ningun cambio puede romper este contrato sin versionado explicito.
 
 ## Primary Action
 
-El usuario agenda una demo mediante popup/modal de Cal.com embebido.
+El usuario agenda una demo mediante popup de ventana de Cal.com.
 
 ---
 
@@ -72,8 +72,8 @@ No se deben modificar rutas existentes sin version bump.
 ## Demo Booking Flow
 
 1. Usuario hace click en cualquier boton "Agendar demo".
-2. Frontend abre popup/modal de Cal.com.
-3. Usuario selecciona fecha y hora en el widget embebido.
+2. Frontend abre popup de navegador con Cal.com.
+3. Usuario selecciona fecha y hora en la pagina de Cal.com.
 4. Confirmacion y gestion de agenda ocurren en Cal.com.
 
 La landing no almacena datos de la agenda.
@@ -101,3 +101,7 @@ Breaking changes requieren:
 - Cambio: Reemplazo de redireccion a Leads Widget por popup/modal embebido de Cal.com para agendamiento de demo.
 - Tipo: Breaking
 - Impacto: frontend, widget
+- Fecha: 2026-02-13
+- Cambio: Cambio tecnico de modal/iframe embebido a popup de ventana Cal.com para evitar bloqueos de links externos (WhatsApp X-Frame-Options).
+- Tipo: Non-breaking
+- Impacto: frontend

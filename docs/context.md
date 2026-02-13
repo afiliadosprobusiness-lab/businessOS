@@ -19,7 +19,7 @@ Desarrollar una landing page orientada a conversion cuyo objetivo principal es:
 -> Agendar demos del pack completo BusinessOS.
 
 La landing no vende productos por separado.
-La accion principal es abrir el popup/modal de Cal.com para agendar la demo.
+La accion principal es abrir una ventana popup de Cal.com para agendar la demo.
 
 ---
 
@@ -40,7 +40,7 @@ La accion principal es abrir el popup/modal de Cal.com para agendar la demo.
 - Estructura de ruta actual:
   - /
 - Sin base de datos en esta fase
-- Integracion de agenda con Cal.com via `@calcom/embed-react`
+- Integracion de agenda con Cal.com abriendo popup de navegador (sin iframe embebido)
 
 ---
 
