@@ -25,7 +25,7 @@ const problems = [
 
 const ProblemSection = () => {
   return (
-    <section id="problema" className="py-24 bg-surface-subtle">
+    <section id="problema" className="scroll-mt-32 bg-surface-subtle py-24">
       <div className="container max-w-4xl">
         <div className="text-center mb-16">
           <p className="text-sm font-medium text-accent uppercase tracking-widest mb-3">El problema</p>

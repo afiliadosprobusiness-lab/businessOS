@@ -38,6 +38,7 @@ La accion principal es llevar al usuario a una pagina interna con embed de Cal.c
 ## Arquitectura General
 
 - Landing estatica optimizada para conversion
+- Secciones clave de conversion: hero, testimonios con scroll horizontal, problema, solucion, como funciona, pricing, CTA, FAQs
 - Pricing configurable desde archivo local
 - Estructura de rutas actual:
   - `/`
@@ -95,6 +96,11 @@ Posibles evoluciones sin romper arquitectura:
 
 ## Cambios Recientes
 
+- 2026-02-13: Se agregaron fotos reales a las tarjetas de la seccion de testimonios.
+- 2026-02-13: Se rediseño `/agendar-demo` con UI alineada a la landing y fallback de WhatsApp (`https://wa.link/wmx5ay`) cuando no hay horarios.
+- 2026-02-13: Se agregaron testimonios con scroll horizontal debajo del hero.
+- 2026-02-13: Se agrego seccion de FAQs debajo del CTA final y ancla `#faqs` en navbar.
+- 2026-02-13: Navbar actualizado para mostrar navegacion tambien en mobile sin ocultar enlaces principales.
 - 2026-02-13: Flujo de demo migrado de popup externo a ruta interna `/agendar-demo` con Cal inline embed.
 - 2026-02-13: Se agrego ruta `/agenda-confirmada` y redireccion automatica despues de `bookingSuccessfulV2`.
 - 2026-02-13: CTA "Ver como funciona" ahora navega al ancla correcta `#como-funciona`.

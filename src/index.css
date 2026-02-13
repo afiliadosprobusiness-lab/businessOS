@@ -119,4 +119,28 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  .testimonial-track {
+    animation: testimonial-scroll 40s linear infinite;
+  }
+
+  .testimonial-track:hover {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .testimonial-track {
+      animation: none;
+    }
+  }
+}
+
+@keyframes testimonial-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }

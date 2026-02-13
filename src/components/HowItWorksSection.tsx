@@ -18,7 +18,7 @@ const steps = [
 
 const HowItWorksSection = () => {
   return (
-    <section id="como-funciona" className="scroll-mt-24 bg-surface-subtle py-24">
+    <section id="como-funciona" className="scroll-mt-32 bg-surface-subtle py-24">
       <div className="container max-w-4xl">
         <div className="text-center mb-16">
           <p className="text-sm font-medium text-accent uppercase tracking-widest mb-3">Cómo funciona</p>

@@ -21,11 +21,12 @@ Keep this doc short and current. It exists to help contributors and agents quick
 ## Key Flows
 
 - Signup/login: Not applicable.
-- Core user flow: User lands on homepage, reviews sections (problem, solution, pricing), then clicks `Agendar demo`.
+- Core user flow: User lands on homepage, reviews sections (hero, testimonials, problem, solution, how it works, pricing, CTA, FAQs), then clicks `Agendar demo`.
 - Demo booking flow:
   1. Any `Agendar demo` CTA navigates to `/agendar-demo`.
   2. The Cal inline selector renders inside that page.
-  3. On Cal event `bookingSuccessfulV2`, app redirects to `/agenda-confirmada`.
+  3. If no slots are available, user can go to WhatsApp fallback link (`https://wa.link/wmx5ay`).
+  4. On Cal event `bookingSuccessfulV2`, app redirects to `/agenda-confirmada`.
 - Payments/subscriptions (if any): Informational pricing only; no checkout in this repo.
 
 ## Architecture Notes
@@ -50,6 +51,11 @@ Keep this doc short and current. It exists to help contributors and agents quick
 
 ## Recent Changes
 
+- 2026-02-13: Added real-profile photos to testimonial cards.
+- 2026-02-13: Redesigned `/agendar-demo` with branded visual treatment and WhatsApp fallback copy/link.
+- 2026-02-13: Added testimonials marquee-like section below hero.
+- 2026-02-13: Added FAQ section below the final CTA and navbar anchor to `#faqs`.
+- 2026-02-13: Updated navbar to keep navigation links available on mobile via horizontal scroll row.
 - 2026-02-13: Replaced popup-based Cal booking with internal route `/agendar-demo` using `@calcom/embed-react`.
 - 2026-02-13: Added booking confirmation page `/agenda-confirmada` and redirect on Cal `bookingSuccessfulV2`.
-- 2026-02-13: Fixed hero CTA `Ver como funciona` to scroll to `#como-funciona` (with `scroll-mt-24` in section).
+- 2026-02-13: Fixed hero CTA `Ver como funciona` to scroll to `#como-funciona` (with top-offset scroll margins in sections).

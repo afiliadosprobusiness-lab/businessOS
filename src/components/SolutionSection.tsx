@@ -26,7 +26,7 @@ const products = [
 
 const SolutionSection = () => {
   return (
-    <section id="solucion" className="scroll-mt-24 py-24">
+    <section id="solucion" className="scroll-mt-32 py-24">
       <div className="container max-w-5xl">
         <div className="text-center mb-16">
           <p className="text-sm font-medium text-accent uppercase tracking-widest mb-3">La solución</p>

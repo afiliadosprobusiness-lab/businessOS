@@ -1,5 +1,5 @@
 # Contrato del Proyecto - BusinessOS Landing
-Version: 3.0.0
+Version: 3.0.1
 
 Este documento es la fuente de verdad mecanica del sistema.
 Ningun cambio puede romper este contrato sin versionado explicito.
@@ -76,8 +76,9 @@ No se deben modificar rutas existentes sin version bump.
 1. Usuario hace click en cualquier boton "Agendar demo".
 2. Frontend navega a `/agendar-demo`.
 3. En `/agendar-demo` se muestra el selector inline de Cal.com (`afiliados-pro-business/meet-demo-businessos`).
-4. Tras evento `bookingSuccessfulV2`, frontend redirige a `/agenda-confirmada`.
-5. Confirmacion y gestion final de agenda ocurren en Cal.com.
+4. Si no hay disponibilidad, frontend ofrece enlace de fallback a WhatsApp (`https://wa.link/wmx5ay`).
+5. Tras evento `bookingSuccessfulV2`, frontend redirige a `/agenda-confirmada`.
+6. Confirmacion y gestion final de agenda ocurren en Cal.com.
 
 La landing no almacena datos de la agenda.
 
@@ -100,6 +101,10 @@ Breaking changes requieren:
 
 ## Changelog del Contrato
 
+- Fecha: 2026-02-13
+- Cambio: Se agrega fallback no bloqueante por WhatsApp en `/agendar-demo` cuando no hay horarios disponibles.
+- Tipo: Non-breaking
+- Impacto: frontend, booking flow
 - Fecha: 2026-02-13
 - Cambio: Reemplazo de popup de Cal.com por ruta interna `/agendar-demo` con embed react inline y nueva ruta de confirmacion `/agenda-confirmada`.
 - Tipo: Breaking
