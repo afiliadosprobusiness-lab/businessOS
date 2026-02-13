@@ -26,7 +26,7 @@ const HeroSection = () => {
           </CalBookingButton>
 
           <Button asChild variant="hero-outline" size="lg" className="h-12 rounded-full px-8 text-base">
-            <a href="#solucion" aria-label="Ver como funciona BusinessOS">
+            <a href="#como-funciona" aria-label="Ver como funciona BusinessOS">
               <Play className="mr-1 h-4 w-4" />
               Ver como funciona
             </a>

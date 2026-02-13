@@ -19,7 +19,7 @@ Desarrollar una landing page orientada a conversion cuyo objetivo principal es:
 -> Agendar demos del pack completo BusinessOS.
 
 La landing no vende productos por separado.
-La accion principal es abrir una ventana popup de Cal.com para agendar la demo.
+La accion principal es llevar al usuario a una pagina interna con embed de Cal.com para agendar la demo.
 
 ---
 
@@ -27,6 +27,8 @@ La accion principal es abrir una ventana popup de Cal.com para agendar la demo.
 
 - Vite + React + TypeScript
 - TailwindCSS + shadcn/ui
+- React Router DOM
+- Cal.com embed react SDK (`@calcom/embed-react`)
 - Deploy objetivo en Vercel
 - Arquitectura frontend-first
 - Sin backend propio en el MVP
@@ -37,10 +39,12 @@ La accion principal es abrir una ventana popup de Cal.com para agendar la demo.
 
 - Landing estatica optimizada para conversion
 - Pricing configurable desde archivo local
-- Estructura de ruta actual:
-  - /
+- Estructura de rutas actual:
+  - `/`
+  - `/agendar-demo`
+  - `/agenda-confirmada`
 - Sin base de datos en esta fase
-- Integracion de agenda con Cal.com abriendo popup de navegador (sin iframe embebido)
+- Integracion de agenda con Cal.com usando componente inline en ruta dedicada
 
 ---
 
@@ -86,3 +90,11 @@ Posibles evoluciones sin romper arquitectura:
 - Integracion futura de tracking (GA4, Meta Pixel)
 - Automatizacion de emails
 - Landing por segmento (agencias, ecommerce, SaaS)
+
+---
+
+## Cambios Recientes
+
+- 2026-02-13: Flujo de demo migrado de popup externo a ruta interna `/agendar-demo` con Cal inline embed.
+- 2026-02-13: Se agrego ruta `/agenda-confirmada` y redireccion automatica despues de `bookingSuccessfulV2`.
+- 2026-02-13: CTA "Ver como funciona" ahora navega al ancla correcta `#como-funciona`.
