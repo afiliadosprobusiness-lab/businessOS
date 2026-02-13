@@ -96,6 +96,8 @@ Posibles evoluciones sin romper arquitectura:
 
 ## Cambios Recientes
 
+- 2026-02-13: Navbar refinado para centrado en desktop y enlaces en mobile con wrap (sin scroll horizontal forzado).
+- 2026-02-13: Testimonios convertidos a carrusel con desplazamiento automatico derecha-izquierda y flechas laterales.
 - 2026-02-13: Se agregaron fotos reales a las tarjetas de la seccion de testimonios.
 - 2026-02-13: Se rediseño `/agendar-demo` con UI alineada a la landing y fallback de WhatsApp (`https://wa.link/wmx5ay`) cuando no hay horarios.
 - 2026-02-13: Se agregaron testimonios con scroll horizontal debajo del hero.

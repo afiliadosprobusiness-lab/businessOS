@@ -11,18 +11,18 @@ const navLinks = [
 const Navbar = () => {
   return (
     <nav className="fixed left-0 right-0 top-0 z-50 border-b border-border bg-background/90 backdrop-blur-md">
-      <div className="container py-3">
-        <div className="flex items-center justify-between gap-3">
-          <a href="#" className="font-display text-xl font-bold tracking-tight text-foreground">
-            Business<span className="text-accent">OS</span>
-          </a>
-          <CalBookingButton variant="hero" size="sm" className="h-10 rounded-full px-4 sm:px-5">
-            Agendar demo
-          </CalBookingButton>
-        </div>
+      <div className="container">
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-3 py-3">
+          <div className="flex items-center justify-between gap-3">
+            <a href="#" className="font-display text-xl font-bold tracking-tight text-foreground">
+              Business<span className="text-accent">OS</span>
+            </a>
+            <CalBookingButton variant="hero" size="sm" className="h-10 rounded-full px-4 sm:px-5">
+              Agendar demo
+            </CalBookingButton>
+          </div>
 
-        <div className="mt-3 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          <div className="flex min-w-max items-center gap-2 pr-3">
+          <div className="flex flex-wrap items-center justify-center gap-2">
             {navLinks.map((link) => (
               <a
                 key={link.href}

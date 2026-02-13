@@ -51,6 +51,8 @@ Keep this doc short and current. It exists to help contributors and agents quick
 
 ## Recent Changes
 
+- 2026-02-13: Refined navbar layout (centered desktop nav and wrapped mobile links without forced horizontal scrolling).
+- 2026-02-13: Upgraded testimonials to a side-arrow carousel with automatic right-left movement.
 - 2026-02-13: Added real-profile photos to testimonial cards.
 - 2026-02-13: Redesigned `/agendar-demo` with branded visual treatment and WhatsApp fallback copy/link.
 - 2026-02-13: Added testimonials marquee-like section below hero.
