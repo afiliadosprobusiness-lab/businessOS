@@ -7,6 +7,10 @@ const CAL_LINK = "afiliados-pro-business/meet-demo-businessos";
 const CAL_CONFIG = {
   layout: "month_view",
   useSlotsViewOnSmallScreen: true,
+  iframeAttrs: {
+    sandbox:
+      "allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation",
+  },
 };
 
 const CAL_CONFIG_JSON = JSON.stringify(CAL_CONFIG);
@@ -25,6 +29,19 @@ const CalBookingProvider = () => {
       cal("ui", {
         hideEventTypeDetails: false,
         layout: "month_view",
+      });
+
+      cal("on", {
+        action: "routed",
+        callback: (event) => {
+          const routeData = event.detail.data;
+
+          if (routeData.actionType !== "externalRedirectUrl") {
+            return;
+          }
+
+          window.open(routeData.actionValue, "_blank", "noopener,noreferrer");
+        },
       });
     };
 

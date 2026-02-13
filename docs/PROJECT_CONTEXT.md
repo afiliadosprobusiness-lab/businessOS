@@ -46,3 +46,4 @@ Keep this doc short and current. It exists to help contributors and agents quick
 - 2026-02-13: Updated hero secondary CTA to smooth-scroll to `#solucion`.
 - 2026-02-13: Added new SVG favicon and linked it in `index.html`.
 - 2026-02-13: Improved final CTA button visual hierarchy and interaction states.
+- 2026-02-13: Added handling for Cal `routed` events with `externalRedirectUrl` to open external links (e.g., WhatsApp) in a new tab from the parent window.
