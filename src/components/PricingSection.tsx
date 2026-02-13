@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
 import { Check, ArrowRight } from "lucide-react";
+import { CalBookingButton } from "@/components/CalBooking";
 
 const plans = [
   {
@@ -102,13 +102,13 @@ const PricingSection = () => {
                 ))}
               </ul>
 
-              <Button
+              <CalBookingButton
                 variant={plan.highlighted ? "hero" : "hero-outline"}
-                className="w-full mt-8 rounded-full"
+                className="mt-8 w-full rounded-full"
               >
                 Agendar demo
-                <ArrowRight className="ml-1 w-4 h-4" />
-              </Button>
+                <ArrowRight className="ml-1 h-4 w-4" />
+              </CalBookingButton>
             </div>
           ))}
         </div>

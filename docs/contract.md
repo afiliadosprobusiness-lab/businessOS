@@ -1,14 +1,14 @@
-# Contrato del Proyecto – BusinessOS Landing
-Versión: 1.0.0
+# Contrato del Proyecto - BusinessOS Landing
+Version: 2.0.0
 
-Este documento es la fuente de verdad mecánica del sistema.
-Ningún cambio puede romper este contrato sin versionado explícito.
+Este documento es la fuente de verdad mecanica del sistema.
+Ningun cambio puede romper este contrato sin versionado explicito.
 
 ---
 
 ## Primary Action
 
-El usuario agenda una demo mediante redirección a Leads Widget.
+El usuario agenda una demo mediante popup/modal de Cal.com embebido.
 
 ---
 
@@ -40,7 +40,7 @@ Estructura obligatoria:
   "currency": string
 }
 
-Configuración actual:
+Configuracion actual:
 
 {
   "setup_price": 279,
@@ -69,20 +69,20 @@ No se deben modificar rutas existentes sin version bump.
 
 ---
 
-## Redirection Flow
+## Demo Booking Flow
 
-1. Usuario completa formulario.
-2. Frontend procesa validación básica.
-3. Se redirige a Leads Widget.
-4. La precalificación ocurre fuera de esta landing.
+1. Usuario hace click en cualquier boton "Agendar demo".
+2. Frontend abre popup/modal de Cal.com.
+3. Usuario selecciona fecha y hora en el widget embebido.
+4. Confirmacion y gestion de agenda ocurren en Cal.com.
 
-La landing no almacena datos.
+La landing no almacena datos de la agenda.
 
 ---
 
 ## Backward Compatibility
 
-- Clientes existentes no deben verse afectados.
+- Clientes existentes no deben verse afectados en contenido y rutas.
 - Nuevas funcionalidades no deben romper:
   - Form Data
   - Pricing Configuration
@@ -90,5 +90,14 @@ La landing no almacena datos.
 
 Breaking changes requieren:
 
-- Actualización de versión mayor.
-- Registro explícito del cambio en este documento.
+- Actualizacion de version mayor.
+- Registro explicito del cambio en este documento.
+
+---
+
+## Changelog del Contrato
+
+- Fecha: 2026-02-13
+- Cambio: Reemplazo de redireccion a Leads Widget por popup/modal embebido de Cal.com para agendamiento de demo.
+- Tipo: Breaking
+- Impacto: frontend, widget

@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { CalBookingButton } from "@/components/CalBooking";
 
 const Navbar = () => {
   return (
@@ -13,9 +13,9 @@ const Navbar = () => {
           <a href="#como-funciona" className="text-sm text-text-secondary hover:text-foreground transition-colors">Cómo funciona</a>
           <a href="#pricing" className="text-sm text-text-secondary hover:text-foreground transition-colors">Pricing</a>
         </div>
-        <Button variant="hero" size="sm" className="rounded-full px-5">
+        <CalBookingButton variant="hero" size="sm" className="rounded-full px-5">
           Agendar demo
-        </Button>
+        </CalBookingButton>
       </div>
     </nav>
   );
