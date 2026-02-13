@@ -51,6 +51,7 @@ Keep this doc short and current. It exists to help contributors and agents quick
 
 ## Recent Changes
 
+- 2026-02-13: Replaced mobile navbar links row with hamburger menu (right drawer) to avoid overlapping hero content.
 - 2026-02-13: Refined navbar layout (centered desktop nav and wrapped mobile links without forced horizontal scrolling).
 - 2026-02-13: Upgraded testimonials to a side-arrow carousel with automatic right-left movement.
 - 2026-02-13: Added real-profile photos to testimonial cards.

@@ -96,6 +96,7 @@ Posibles evoluciones sin romper arquitectura:
 
 ## Cambios Recientes
 
+- 2026-02-13: En mobile, navbar migrado a menu hamburguesa (drawer lateral) para evitar superposicion sobre el hero.
 - 2026-02-13: Navbar refinado para centrado en desktop y enlaces en mobile con wrap (sin scroll horizontal forzado).
 - 2026-02-13: Testimonios convertidos a carrusel con desplazamiento automatico derecha-izquierda y flechas laterales.
 - 2026-02-13: Se agregaron fotos reales a las tarjetas de la seccion de testimonios.

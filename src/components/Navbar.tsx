@@ -1,4 +1,8 @@
+import { useState } from "react";
+import { Menu } from "lucide-react";
 import { CalBookingButton } from "@/components/CalBooking";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetClose, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const navLinks = [
   { label: "Problema", href: "#problema" },
@@ -9,6 +13,8 @@ const navLinks = [
 ];
 
 const Navbar = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <nav className="fixed left-0 right-0 top-0 z-50 border-b border-border bg-background/90 backdrop-blur-md">
       <div className="container">
@@ -17,12 +23,66 @@ const Navbar = () => {
             <a href="#" className="font-display text-xl font-bold tracking-tight text-foreground">
               Business<span className="text-accent">OS</span>
             </a>
-            <CalBookingButton variant="hero" size="sm" className="h-10 rounded-full px-4 sm:px-5">
-              Agendar demo
-            </CalBookingButton>
+
+            <div className="hidden md:block">
+              <CalBookingButton variant="hero" size="sm" className="h-10 rounded-full px-4 sm:px-5">
+                Agendar demo
+              </CalBookingButton>
+            </div>
+
+            <div className="md:hidden">
+              <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+                <SheetTrigger asChild>
+                  <Button
+                    variant="hero-outline"
+                    size="icon"
+                    className="h-10 w-10 rounded-full"
+                    aria-label="Abrir menu de navegacion"
+                  >
+                    <Menu className="h-5 w-5" />
+                  </Button>
+                </SheetTrigger>
+
+                <SheetContent side="right" className="w-[86vw] max-w-xs border-l border-border bg-background p-0">
+                  <div className="flex h-full flex-col">
+                    <div className="border-b border-border px-5 py-5">
+                      <p className="font-display text-xl font-bold tracking-tight text-foreground">
+                        Business<span className="text-accent">OS</span>
+                      </p>
+                      <p className="mt-2 text-sm text-text-secondary">Navega por la landing</p>
+                    </div>
+
+                    <nav className="flex-1 space-y-2 px-5 py-4">
+                      {navLinks.map((link) => (
+                        <SheetClose asChild key={link.href}>
+                          <a
+                            href={link.href}
+                            className="block rounded-xl border border-border bg-card px-3 py-2 text-sm font-medium text-text-secondary transition-colors duration-200 hover:border-accent/40 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                          >
+                            {link.label}
+                          </a>
+                        </SheetClose>
+                      ))}
+                    </nav>
+
+                    <div className="border-t border-border px-5 py-5">
+                      <CalBookingButton
+                        variant="hero"
+                        className="w-full rounded-full"
+                        onClick={() => {
+                          setMobileMenuOpen(false);
+                        }}
+                      >
+                        Agendar demo
+                      </CalBookingButton>
+                    </div>
+                  </div>
+                </SheetContent>
+              </Sheet>
+            </div>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-2">
+          <div className="hidden flex-wrap items-center justify-center gap-2 md:flex">
             {navLinks.map((link) => (
               <a
                 key={link.href}
