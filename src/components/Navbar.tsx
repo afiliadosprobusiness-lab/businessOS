@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu } from "lucide-react";
+import { Link } from "react-router-dom";
 import { CalBookingButton } from "@/components/CalBooking";
 import ThemeToggle from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/button";
@@ -26,6 +27,9 @@ const Navbar = () => {
             </a>
 
             <div className="hidden items-center gap-3 md:flex">
+              <Button asChild variant="hero-outline" size="sm" className="h-10 rounded-full px-4 sm:px-5">
+                <Link to="/blog">Blog</Link>
+              </Button>
               <ThemeToggle />
               <CalBookingButton variant="hero" size="sm" className="h-10 rounded-full px-4 sm:px-5">
                 Agendar demo
@@ -56,6 +60,14 @@ const Navbar = () => {
                     </div>
 
                     <nav className="flex-1 space-y-2 px-5 py-4">
+                      <SheetClose asChild>
+                        <Link
+                          to="/blog"
+                          className="block rounded-xl border border-border bg-card px-3 py-2 text-sm font-medium text-text-secondary transition-colors duration-200 hover:border-accent/40 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                        >
+                          Blog
+                        </Link>
+                      </SheetClose>
                       {navLinks.map((link) => (
                         <SheetClose asChild key={link.href}>
                           <a

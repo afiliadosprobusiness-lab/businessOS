@@ -1,0 +1,66 @@
+{
+  "slug": "sistema-de-leads-para-cursos-online",
+  "keyword": "sistema de leads para cursos online",
+  "variant": "cursos-online",
+  "seo": {
+    "title": "Sistema de leads para cursos online | BusinessOS",
+    "description": "Convierte mas alumnos potenciales en ventas con un sistema de leads para cursos online estructurado y medible.",
+    "canonicalPath": "/sistema-de-leads-para-cursos-online",
+    "schemaType": "Service"
+  },
+  "hero": {
+    "eyebrow": "BusinessOS para infoproductores",
+    "headline": "sistema de leads para cursos online",
+    "subheadline": "Organiza captacion, nutricion y cierre de prospectos para vender programas online con un proceso comercial estable.",
+    "ctaLabel": "Quiero mas leads por WhatsApp",
+    "ctaMessage": "Hola, quiero un sistema de leads para cursos online con BusinessOS"
+  },
+  "problem": {
+    "title": "El problema en lanzamientos y evergreen",
+    "description": "Sin un sistema unificado, los leads se acumulan en varias plataformas y baja la conversion por falta de seguimiento.",
+    "bullets": [
+      "No hay prioridad entre leads frios, tibios y calientes.",
+      "Mensajes manuales que retrasan cierres.",
+      "Sin trazabilidad completa del funnel de venta."
+    ]
+  },
+  "benefits": {
+    "title": "Beneficios claros de BusinessOS",
+    "items": [
+      "Pipeline de ventas adaptado a webinars, VSL y llamadas de cierre.",
+      "Automatizaciones para seguimiento por etapa de decision.",
+      "Metricas accionables para mejorar conversion por cohorte."
+    ]
+  },
+  "steps": {
+    "title": "Como funciona en 3 pasos",
+    "items": [
+      {
+        "title": "Integramos captacion",
+        "description": "Conectamos formularios y canales de contacto para registrar todos tus leads en un solo lugar."
+      },
+      {
+        "title": "Activamos seguimiento",
+        "description": "Configuramos secuencias y tareas para que cada prospecto avance de forma consistente."
+      },
+      {
+        "title": "Optimiza tu embudo",
+        "description": "Analizas conversion por etapa para escalar lo que ya funciona en tus ofertas."
+      }
+    ]
+  },
+  "faqs": [
+    {
+      "question": "Funciona para lanzamientos y ventas evergreen?",
+      "answer": "Si. Puedes usar flujos distintos para cada modelo comercial dentro del mismo sistema."
+    },
+    {
+      "question": "Se integra con WhatsApp?",
+      "answer": "Si. Puedes coordinar seguimiento comercial desde WhatsApp sin perder trazabilidad."
+    },
+    {
+      "question": "Puedo medir cierre por campaña?",
+      "answer": "Si. El tablero te permite analizar rendimiento por fuente, oferta y etapa de embudo."
+    }
+  ]
+}

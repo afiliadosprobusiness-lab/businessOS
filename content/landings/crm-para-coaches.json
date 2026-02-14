@@ -1,0 +1,66 @@
+{
+  "slug": "crm-para-coaches",
+  "keyword": "crm para coaches",
+  "variant": "coaches",
+  "seo": {
+    "title": "CRM para coaches | BusinessOS",
+    "description": "Gestiona prospectos, sesiones y renovaciones con un CRM para coaches enfocado en conversion y seguimiento.",
+    "canonicalPath": "/crm-para-coaches",
+    "schemaType": "Service"
+  },
+  "hero": {
+    "eyebrow": "BusinessOS para coaches y consultores",
+    "headline": "crm para coaches",
+    "subheadline": "Convierte conversaciones en procesos comerciales repetibles para vender programas de mentoring sin depender del caos operativo.",
+    "ctaLabel": "Escribir por WhatsApp",
+    "ctaMessage": "Hola, quiero implementar un CRM para coaches con BusinessOS"
+  },
+  "problem": {
+    "title": "El problema del seguimiento en coaching",
+    "description": "Muchos coaches tienen demanda, pero sin sistema comercial se pierden oportunidades entre mensajes y notas dispersas.",
+    "bullets": [
+      "Leads tibios que nunca reciben segundo contacto.",
+      "No hay control de objeciones ni estado real del prospecto.",
+      "Renovaciones sin proceso y ventas impredecibles."
+    ]
+  },
+  "benefits": {
+    "title": "Beneficios claros de BusinessOS",
+    "items": [
+      "Vista unica de prospectos, llamadas discovery y cierres.",
+      "Seguimientos automatizados segun etapa comercial.",
+      "Mejor trazabilidad para optimizar conversion y retencion."
+    ]
+  },
+  "steps": {
+    "title": "Como funciona en 3 pasos",
+    "items": [
+      {
+        "title": "Mapeamos tu embudo",
+        "description": "Definimos etapas para llamada, propuesta, cierre y renovacion segun tu oferta."
+      },
+      {
+        "title": "Automatizamos tareas",
+        "description": "Activamos recordatorios y mensajes para que cada prospecto reciba seguimiento a tiempo."
+      },
+      {
+        "title": "Escalamos resultados",
+        "description": "Con reportes semanales mejoras cierres y predices ingresos con mayor precision."
+      }
+    ]
+  },
+  "faqs": [
+    {
+      "question": "Funciona para coaches 1 a 1 y grupales?",
+      "answer": "Si. Puedes adaptar etapas para sesiones individuales, grupales o programas mixtos."
+    },
+    {
+      "question": "Necesito conocimientos tecnicos?",
+      "answer": "No. Se implementa con acompanamiento y flujo listo para operar desde el primer dia."
+    },
+    {
+      "question": "Puedo usar mis canales actuales?",
+      "answer": "Si. El sistema se integra a tu operacion actual para ordenar y medir mejor tus ventas."
+    }
+  ]
+}

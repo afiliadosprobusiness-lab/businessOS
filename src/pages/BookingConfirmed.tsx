@@ -1,10 +1,26 @@
 import { Link } from "react-router-dom";
 import { CheckCircle2, House } from "lucide-react";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
+import { buildAbsoluteUrl } from "@/lib/site";
 
 const BookingConfirmed = () => {
   return (
     <main className="min-h-screen bg-primary px-4 py-12 sm:px-6 sm:py-16">
+      <SEO
+        title="Demo agendada | BusinessOS"
+        description="Tu demo fue registrada. Revisa los siguientes pasos para confirmar asistencia y aprovechar la llamada."
+        path="/agenda-confirmada"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Agenda confirmada BusinessOS",
+          description: "Pantalla posterior al agendamiento de demo.",
+          url: buildAbsoluteUrl("/agenda-confirmada"),
+          inLanguage: "es",
+        }}
+      />
+
       <section className="mx-auto w-full max-w-4xl rounded-3xl border border-white/20 bg-primary-foreground/10 p-6 text-primary-foreground shadow-[0_30px_90px_-45px_hsl(220_70%_10%)] backdrop-blur sm:p-10">
         <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-accent-foreground/95">
           <CheckCircle2 className="h-4 w-4" />

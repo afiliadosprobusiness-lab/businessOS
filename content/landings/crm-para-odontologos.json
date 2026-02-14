@@ -1,0 +1,66 @@
+{
+  "slug": "crm-para-odontologos",
+  "keyword": "crm para odontologos",
+  "variant": "odontologos",
+  "seo": {
+    "title": "CRM para odontologos | BusinessOS",
+    "description": "Organiza pacientes, seguimientos y cierres con un CRM para odontologos pensado para clinicas en crecimiento.",
+    "canonicalPath": "/crm-para-odontologos",
+    "schemaType": "Service"
+  },
+  "hero": {
+    "eyebrow": "BusinessOS para clinicas dentales",
+    "headline": "crm para odontologos",
+    "subheadline": "Centraliza consultas de WhatsApp, llamadas y referidos para que ningun tratamiento potencial se pierda por falta de seguimiento.",
+    "ctaLabel": "Hablar por WhatsApp",
+    "ctaMessage": "Hola, quiero informacion de CRM para odontologos en BusinessOS"
+  },
+  "problem": {
+    "title": "El problema en muchas clinicas",
+    "description": "El equipo recibe consultas por varios canales y no existe un proceso unico para convertirlas en citas efectivas.",
+    "bullets": [
+      "Pacientes potenciales sin respuesta en menos de 24 horas.",
+      "Seguimiento manual con alta probabilidad de olvido.",
+      "Sin visibilidad de que canal trae tratamientos de mayor valor."
+    ]
+  },
+  "benefits": {
+    "title": "Beneficios claros de BusinessOS",
+    "items": [
+      "Pipeline comercial por tipo de tratamiento y estado del paciente.",
+      "Recordatorios automaticos para llamadas y mensajes de seguimiento.",
+      "Reportes simples para detectar cuellos de botella en admision."
+    ]
+  },
+  "steps": {
+    "title": "Como funciona en 3 pasos",
+    "items": [
+      {
+        "title": "Conectamos tus canales",
+        "description": "Integramos el ingreso de leads desde formularios, WhatsApp y referidos en un solo tablero."
+      },
+      {
+        "title": "Configuramos tu flujo",
+        "description": "Definimos etapas y responsables para que cada lead avance con tiempos de respuesta claros."
+      },
+      {
+        "title": "Optimizamos conversion",
+        "description": "Revisamos metricas semanales para mejorar confirmaciones de cita y cierres de tratamientos."
+      }
+    ]
+  },
+  "faqs": [
+    {
+      "question": "Puedo usarlo aunque ya trabajo con WhatsApp Business?",
+      "answer": "Si. El sistema ordena el seguimiento comercial sin obligarte a cambiar tu canal principal de contacto."
+    },
+    {
+      "question": "Sirve para clinicas pequenas?",
+      "answer": "Si. Funciona tanto para equipos pequenos como para clinicas con varias sedes."
+    },
+    {
+      "question": "Cuanto tarda implementarlo?",
+      "answer": "Normalmente se configura en pocos dias, dependiendo del flujo comercial actual de la clinica."
+    }
+  ]
+}

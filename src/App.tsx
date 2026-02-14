@@ -8,7 +8,15 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ScheduleDemo from "./pages/ScheduleDemo";
 import BookingConfirmed from "./pages/BookingConfirmed";
-import { DEMO_BOOKING_ROUTE, DEMO_CONFIRMATION_ROUTE } from "@/lib/routes";
+import BlogIndex from "./pages/BlogIndex";
+import BlogPostPage from "./pages/BlogPostPage";
+import LandingPage from "./pages/LandingPage";
+import {
+  BLOG_INDEX_ROUTE,
+  BLOG_POST_ROUTE,
+  DEMO_BOOKING_ROUTE,
+  DEMO_CONFIRMATION_ROUTE,
+} from "@/lib/routes";
 
 const queryClient = new QueryClient();
 
@@ -21,9 +29,13 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/es" element={<Index />} />
+            <Route path="/en" element={<Index />} />
             <Route path={DEMO_BOOKING_ROUTE} element={<ScheduleDemo />} />
             <Route path={DEMO_CONFIRMATION_ROUTE} element={<BookingConfirmed />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path={BLOG_INDEX_ROUTE} element={<BlogIndex />} />
+            <Route path={BLOG_POST_ROUTE} element={<BlogPostPage />} />
+            <Route path="/:landingSlug" element={<LandingPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

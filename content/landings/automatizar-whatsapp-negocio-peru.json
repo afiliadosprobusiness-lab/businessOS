@@ -1,0 +1,66 @@
+{
+  "slug": "automatizar-whatsapp-negocio-peru",
+  "keyword": "automatizar whatsapp negocio peru",
+  "variant": "whatsapp-peru",
+  "seo": {
+    "title": "Automatizar WhatsApp negocio Peru | BusinessOS",
+    "description": "Descubre como automatizar WhatsApp para negocio en Peru y mejorar respuesta, seguimiento y conversion comercial.",
+    "canonicalPath": "/automatizar-whatsapp-negocio-peru",
+    "schemaType": "WebPage"
+  },
+  "hero": {
+    "eyebrow": "BusinessOS para ventas por WhatsApp",
+    "headline": "automatizar whatsapp negocio peru",
+    "subheadline": "Pasa de responder mensajes sueltos a operar un flujo comercial automatizado que acelera conversion y evita perdida de oportunidades.",
+    "ctaLabel": "Automatizar por WhatsApp",
+    "ctaMessage": "Hola, quiero automatizar WhatsApp para mi negocio en Peru con BusinessOS"
+  },
+  "problem": {
+    "title": "El problema de vender solo por chat",
+    "description": "Cuando todo depende de respuesta manual, el equipo se satura y los prospectos abandonan antes de comprar.",
+    "bullets": [
+      "Demoras en respuesta cuando sube el volumen de mensajes.",
+      "Seguimiento inconsistente despues del primer contacto.",
+      "Poca visibilidad de conversion por asesor o tipo de consulta."
+    ]
+  },
+  "benefits": {
+    "title": "Beneficios claros de BusinessOS",
+    "items": [
+      "Reglas de asignacion y seguimiento para cada nuevo lead.",
+      "Mensajes iniciales y recordatorios automatizados.",
+      "Panel comercial para medir tiempos de respuesta y cierres."
+    ]
+  },
+  "steps": {
+    "title": "Como funciona en 3 pasos",
+    "items": [
+      {
+        "title": "Diagnosticamos tu proceso",
+        "description": "Analizamos como ingresan consultas y donde se pierden oportunidades hoy."
+      },
+      {
+        "title": "Implementamos automatizaciones",
+        "description": "Configuramos reglas, tareas y mensajes para mantener el flujo comercial activo."
+      },
+      {
+        "title": "Escalamos con datos",
+        "description": "Monitoreas conversion y ajustas tu operacion para vender con mas consistencia."
+      }
+    ]
+  },
+  "faqs": [
+    {
+      "question": "Esto reemplaza a mi equipo de ventas?",
+      "answer": "No. Lo potencia con procesos claros para que respondan mejor y cierren mas rapido."
+    },
+    {
+      "question": "Sirve para negocios pequenos en Peru?",
+      "answer": "Si. Esta pensado para pymes y equipos comerciales en etapa de crecimiento."
+    },
+    {
+      "question": "Cuanto tarda ver mejoras?",
+      "answer": "Normalmente se observan mejoras en tiempos de respuesta y seguimiento durante las primeras semanas."
+    }
+  ]
+}

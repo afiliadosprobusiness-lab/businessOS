@@ -1,0 +1,66 @@
+{
+  "slug": "crm-para-inmobiliarias",
+  "keyword": "crm para inmobiliarias",
+  "variant": "inmobiliarias",
+  "seo": {
+    "title": "CRM para inmobiliarias | BusinessOS",
+    "description": "Controla prospectos, visitas y cierres con un CRM para inmobiliarias orientado a velocidad comercial.",
+    "canonicalPath": "/crm-para-inmobiliarias",
+    "schemaType": "Service"
+  },
+  "hero": {
+    "eyebrow": "BusinessOS para equipos inmobiliarios",
+    "headline": "crm para inmobiliarias",
+    "subheadline": "Unifica leads de portales, redes y WhatsApp para acelerar visitas y cierres sin perder oportunidades en el camino.",
+    "ctaLabel": "Solicitar por WhatsApp",
+    "ctaMessage": "Hola, quiero evaluar un CRM para inmobiliarias con BusinessOS"
+  },
+  "problem": {
+    "title": "El problema comercial en real estate",
+    "description": "Los asesores trabajan con informacion dispersa y el seguimiento depende de la disciplina individual.",
+    "bullets": [
+      "Leads duplicados entre asesores y canales.",
+      "Citas y visitas sin trazabilidad de avance.",
+      "Sin datos claros para saber que proyecto convierte mejor."
+    ]
+  },
+  "benefits": {
+    "title": "Beneficios claros de BusinessOS",
+    "items": [
+      "Asignacion automatica de leads por reglas comerciales.",
+      "Historial unificado de contacto por cliente potencial.",
+      "Panel de conversion por proyecto, canal y asesor."
+    ]
+  },
+  "steps": {
+    "title": "Como funciona en 3 pasos",
+    "items": [
+      {
+        "title": "Centralizamos tus leads",
+        "description": "Capturamos y ordenamos contactos desde portales, anuncios y referidos."
+      },
+      {
+        "title": "Estandarizamos seguimiento",
+        "description": "Definimos tareas, alertas y plantillas para cada etapa del proceso inmobiliario."
+      },
+      {
+        "title": "Medimos conversion",
+        "description": "Visualizas rendimiento comercial por asesor y tomas decisiones con datos reales."
+      }
+    ]
+  },
+  "faqs": [
+    {
+      "question": "Se adapta a venta y alquiler?",
+      "answer": "Si. Puedes crear flujos separados para venta, alquiler y proyectos nuevos."
+    },
+    {
+      "question": "Puedo controlar varios asesores?",
+      "answer": "Si. Cada asesor puede tener su pipeline con visibilidad consolidada para direccion comercial."
+    },
+    {
+      "question": "Sirve para inmobiliarias pequenas?",
+      "answer": "Si. Esta pensado para crecer desde equipos compactos hasta operaciones mas amplias."
+    }
+  ]
+}

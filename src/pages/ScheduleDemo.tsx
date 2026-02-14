@@ -2,14 +2,18 @@ import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowLeft, CalendarDays, Clock3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import SEO from "@/components/SEO";
 import Cal, { getCalApi } from "@calcom/embed-react";
 import { DEMO_CONFIRMATION_ROUTE } from "@/lib/routes";
+import { buildAbsoluteUrl } from "@/lib/site";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 const CAL_NAMESPACE = "meet-demo-businessos";
 const CAL_LINK = "afiliados-pro-business/meet-demo-businessos";
 
 const ScheduleDemo = () => {
   const navigate = useNavigate();
+  const whatsappFallbackUrl = buildWhatsAppUrl("Hola, no encontre horarios disponibles para demo en BusinessOS");
 
   useEffect(() => {
     let isMounted = true;
@@ -33,6 +37,20 @@ const ScheduleDemo = () => {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-gradient-to-b from-surface-subtle via-background to-background px-4 pb-12 pt-28 sm:px-6 lg:px-8">
+      <SEO
+        title="Agendar demo BusinessOS | Reserva tu llamada"
+        description="Agenda una demo personalizada de BusinessOS y descubre como ordenar ventas, leads y automatizacion en tu negocio."
+        path="/agendar-demo"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Agendar demo BusinessOS",
+          description: "Pagina para reservar una demo comercial de BusinessOS.",
+          url: buildAbsoluteUrl("/agendar-demo"),
+          inLanguage: "es",
+        }}
+      />
+
       <div
         className="pointer-events-none absolute -left-28 top-20 h-64 w-64 rounded-full bg-accent/15 blur-3xl"
         aria-hidden="true"
@@ -68,9 +86,9 @@ const ScheduleDemo = () => {
                 Selecciona un horario disponible y confirma tu llamada en menos de un minuto.
               </p>
               <p className="mt-2 text-sm text-text-secondary">
-                Si no encuentra disponibilidad,{" "}
+                Si no encuentra disponibilidad,{' '}
                 <a
-                  href="https://wa.link/wmx5ay"
+                  href={whatsappFallbackUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-semibold text-accent underline underline-offset-4 transition-colors duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
