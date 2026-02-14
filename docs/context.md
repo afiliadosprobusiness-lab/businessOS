@@ -39,6 +39,7 @@ La accion principal es llevar al usuario a una pagina interna con embed de Cal.c
 
 - Landing estatica optimizada para conversion
 - Secciones clave de conversion: hero, testimonios con scroll horizontal, problema, solucion, como funciona, pricing, CTA, FAQs
+- Navbar con switch de tema (light/dark) y persistencia del modo para toda la app
 - Pricing configurable desde archivo local
 - Estructura de rutas actual:
   - `/`
@@ -96,6 +97,8 @@ Posibles evoluciones sin romper arquitectura:
 
 ## Cambios Recientes
 
+- 2026-02-13: Se agrego switch de modo oscuro en navbar (desktop y mobile) con aplicacion global tambien en `/agendar-demo`.
+- 2026-02-13: Se ajustaron tokens de color `.dark` para contraste AA en textos, cards, botones y superficies.
 - 2026-02-13: En mobile, navbar migrado a menu hamburguesa (drawer lateral) para evitar superposicion sobre el hero.
 - 2026-02-13: Navbar refinado para centrado en desktop y enlaces en mobile con wrap (sin scroll horizontal forzado).
 - 2026-02-13: Testimonios convertidos a carrusel con desplazamiento automatico derecha-izquierda y flechas laterales.

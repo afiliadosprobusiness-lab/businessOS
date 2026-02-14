@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu } from "lucide-react";
 import { CalBookingButton } from "@/components/CalBooking";
+import ThemeToggle from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
@@ -24,13 +25,15 @@ const Navbar = () => {
               Business<span className="text-accent">OS</span>
             </a>
 
-            <div className="hidden md:block">
+            <div className="hidden items-center gap-3 md:flex">
+              <ThemeToggle />
               <CalBookingButton variant="hero" size="sm" className="h-10 rounded-full px-4 sm:px-5">
                 Agendar demo
               </CalBookingButton>
             </div>
 
-            <div className="md:hidden">
+            <div className="flex items-center gap-2 md:hidden">
+              <ThemeToggle compact />
               <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
                 <SheetTrigger asChild>
                   <Button
@@ -66,9 +69,10 @@ const Navbar = () => {
                     </nav>
 
                     <div className="border-t border-border px-5 py-5">
+                      <ThemeToggle />
                       <CalBookingButton
                         variant="hero"
-                        className="w-full rounded-full"
+                        className="mt-3 w-full rounded-full"
                         onClick={() => {
                           setMobileMenuOpen(false);
                         }}

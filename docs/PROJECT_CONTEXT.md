@@ -22,6 +22,7 @@ Keep this doc short and current. It exists to help contributors and agents quick
 
 - Signup/login: Not applicable.
 - Core user flow: User lands on homepage, reviews sections (hero, testimonials, problem, solution, how it works, pricing, CTA, FAQs), then clicks `Agendar demo`.
+- Theme flow: User can toggle light/dark mode from navbar; selected theme affects all routes (`/`, `/agendar-demo`, `/agenda-confirmada`).
 - Demo booking flow:
   1. Any `Agendar demo` CTA navigates to `/agendar-demo`.
   2. The Cal inline selector renders inside that page.
@@ -51,6 +52,8 @@ Keep this doc short and current. It exists to help contributors and agents quick
 
 ## Recent Changes
 
+- 2026-02-13: Added navbar theme switch (desktop + mobile) with global app-level dark mode.
+- 2026-02-13: Tuned `.dark` design tokens to preserve text/background contrast across sections and pages.
 - 2026-02-13: Replaced mobile navbar links row with hamburger menu (right drawer) to avoid overlapping hero content.
 - 2026-02-13: Refined navbar layout (centered desktop nav and wrapped mobile links without forced horizontal scrolling).
 - 2026-02-13: Upgraded testimonials to a side-arrow carousel with automatic right-left movement.
