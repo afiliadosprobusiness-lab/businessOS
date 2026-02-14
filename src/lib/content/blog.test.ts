@@ -25,5 +25,7 @@ describe("blog loader", () => {
 
     expect(templatePost).toBeNull();
     expect(allPosts.some((post) => post.slug.startsWith("_"))).toBe(false);
+    expect(allPosts.some((post) => post.slug.includes("template-businessos"))).toBe(false);
+    expect(allPosts.some((post) => post.title.includes("{nicho}") || post.title.includes("{ciudad}"))).toBe(false);
   });
 });

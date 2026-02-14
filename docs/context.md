@@ -24,6 +24,7 @@ La web tiene dos objetivos de negocio:
 - React Router DOM.
 - Cal.com embed react SDK (`@calcom/embed-react`).
 - Frontend-first sin backend propio.
+- Deploy SPA en Vercel con fallback configurado en `vercel.json` hacia `index.html`.
 
 ## Arquitectura de Contenido
 
@@ -63,6 +64,7 @@ La web tiene dos objetivos de negocio:
 3. Detalle en `/blog/:slug`.
 4. CTA automatico al final de todos los posts.
 5. CTA inline opcional por frontmatter (`ctaVariant: soft`).
+6. Enlaces internos dentro del markdown navegan con React Router (sin recarga completa).
 
 ### Landings SEO
 
@@ -115,6 +117,9 @@ Opcionales:
 
 ## Cambios Recientes
 
+- 2026-02-14: Se normalizo extraccion de slugs de contenido para soportar rutas Windows y evitar publicar plantillas por error en el blog.
+- 2026-02-14: Se agrego fallback SPA en Vercel (`vercel.json`) para evitar 404 de servidor en rutas internas (blog y landings).
+- 2026-02-14: Se removio branding heredado (meta tags, plugin de Vite, dependencia dev y favicon legado) y se actualizo la pagina 404 personalizada.
 - 2026-02-14: Se estandarizaron mensajes de CTA WhatsApp con formato `Hola, quiero implementar BusinessOS para [nicho] en [ciudad]` y numero por defecto `+51 924 464 410`.
 - 2026-02-14: CTA automatico de blog (fin obligatorio + inline opcional por frontmatter) con tracking.
 - 2026-02-14: Generador de 50 landings SEO (nicho x ciudad Peru) desde catalogo de archivos.

@@ -45,8 +45,14 @@ interface LandingCatalog {
 }
 
 const extractSlugFromPath = (filePath: string) => {
-  const match = filePath.match(/\/([^/]+)\.json$/);
-  return match?.[1] || "";
+  const normalized = filePath.replaceAll("\\", "/");
+  const fileName = normalized.split("/").pop() || "";
+
+  if (!fileName.endsWith(".json")) {
+    return "";
+  }
+
+  return fileName.slice(0, -5);
 };
 
 const ensureStringArray = (value: unknown) => (Array.isArray(value) ? value.filter((item) => typeof item === "string") : []);

@@ -22,8 +22,14 @@ const parseCtaVariant = (value?: string): "default" | "soft" | "none" => {
 };
 
 const extractSlugFromPath = (filePath: string) => {
-  const match = filePath.match(/\/([^/]+)\.mdx$/);
-  return match?.[1] || "";
+  const normalized = filePath.replaceAll("\\", "/");
+  const fileName = normalized.split("/").pop() || "";
+
+  if (!fileName.endsWith(".mdx")) {
+    return "";
+  }
+
+  return fileName.slice(0, -4);
 };
 
 const isTemplateSlug = (slug: string) => slug.startsWith("_");

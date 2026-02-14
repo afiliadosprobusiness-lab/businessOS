@@ -14,6 +14,7 @@ Keep this document current so contributors and agents can ship safely.
 - Routing: `react-router-dom`.
 - Demo booking: `@calcom/embed-react`.
 - Architecture: frontend-only MVP (no backend service in this repo).
+- Deployment: Vercel SPA fallback is configured via `vercel.json` to serve `index.html` on internal routes.
 
 ## Content Architecture
 
@@ -53,6 +54,7 @@ Keep this document current so contributors and agents can ship safely.
 2. User opens `/blog/:slug`.
 3. Every post renders an automatic end CTA.
 4. Optional inline CTA is enabled via frontmatter (`ctaVariant: soft`).
+5. Internal markdown links are intercepted and routed via React Router (no full reload).
 
 ### SEO Landing Flow
 
@@ -105,6 +107,9 @@ Optional:
 
 ## Recent Changes
 
+- 2026-02-14: Normalized content slug extraction to support Windows path separators and prevent template posts from being published.
+- 2026-02-14: Added Vercel SPA fallback (`vercel.json`) to avoid server-side 404 on deep links (blog and landing routes).
+- 2026-02-14: Removed legacy branding references (meta tags, Vite plugin, dev dependency, legacy favicon) and kept custom 404 UI.
 - 2026-02-14: Standardized WhatsApp CTA message format to `Hola, quiero implementar BusinessOS para [niche] en [city]` with default number `+51 924 464 410`.
 - 2026-02-14: Added automatic blog CTA system (mandatory end CTA + optional inline CTA via frontmatter).
 - 2026-02-14: Added programmatic generator for 50 niche+city SEO landings.

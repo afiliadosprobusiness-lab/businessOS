@@ -9,12 +9,19 @@ import { buildAbsoluteUrl } from "@/lib/site";
 import { trackEvent } from "@/lib/analytics";
 import { buildBusinessOSMessage, buildWhatsAppUrl } from "@/lib/whatsapp";
 
-const formatDate = (date: string) =>
-  new Date(`${date}T00:00:00`).toLocaleDateString("es-PE", {
+const formatDate = (date: string) => {
+  const parsed = new Date(`${date}T00:00:00`);
+
+  if (Number.isNaN(parsed.getTime())) {
+    return "Fecha no disponible";
+  }
+
+  return parsed.toLocaleDateString("es-PE", {
     day: "2-digit",
     month: "long",
     year: "numeric",
   });
+};
 
 const splitContentForInlineCta = (content: string) => {
   const headingIndexes: number[] = [];
