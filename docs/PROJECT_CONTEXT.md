@@ -99,6 +99,7 @@ If tracking is present (`window.gtag` or `window.dataLayer`):
   - `[data-cta="whatsapp"]` elements
 - Reusable landing/blog CTA templates expose `data-cta`, `data-source`, `data-variant`, `data-landing-key`, and `data-blog-slug`.
 - GTM is globally loaded in `index.html` with `NEXT_PUBLIC_GTM_ID`.
+- The GTM bootstrap snippet in `index.html` follows Google's official format (unmodified base fragment).
 - SPA pageviews are pushed on every route change with `event: "page_view"`, `page_path`, and `page_title`.
 - GA4 is configured from GTM (no direct GA4 tracking code), with `NEXT_PUBLIC_GA4_ID` available for future use.
 
@@ -172,3 +173,4 @@ Optional:
 - 2026-02-14: Extended sitemap/robots generation to include programmatic routes.
 - 2026-02-14: Added global GTM install (`NEXT_PUBLIC_GTM_ID`) and SPA `page_view` route tracking via `dataLayer`; GA4 setup is managed in GTM with `NEXT_PUBLIC_GA4_ID`.
 - 2026-02-14: Migrated WhatsApp conversion tracking to global delegation and standardized `cta_whatsapp_click` payload across landing/blog templates.
+- 2026-02-14: Aligned GTM snippet to Google official format and reinforced that `NEXT_PUBLIC_GTM_ID`/`NEXT_PUBLIC_GA4_ID` must be present in build/deploy environment variables.

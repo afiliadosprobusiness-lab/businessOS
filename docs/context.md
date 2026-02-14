@@ -106,6 +106,7 @@ Si existe tracking (`window.gtag` o `window.dataLayer`):
 - Implementacion activa: delegacion global de clicks para `wa.me`, `api.whatsapp.com` y `[data-cta="whatsapp"]` con `dataLayer.push`.
 - Los templates reutilizables de CTA (landing y blog) exponen `data-cta`, `data-source`, `data-variant` y metadatos de contexto (`data-landing-key`, `data-blog-slug`) para clasificar eventos sin editar 50+ archivos.
 - GTM se instala globalmente desde `index.html` usando `NEXT_PUBLIC_GTM_ID`.
+- El snippet de GTM en `index.html` se mantiene con formato oficial de Google (sin modificaciones del fragmento base).
 - Los pageviews SPA se empujan en cada cambio de ruta con `event: "page_view"`, `page_path` y `page_title`.
 - GA4 se configura via GTM (sin tracking GA4 directo en codigo), con `NEXT_PUBLIC_GA4_ID` disponible para extensiones futuras.
 
@@ -187,3 +188,4 @@ Opcionales:
 - 2026-02-14: Sitemap/robots ampliados para cubrir rutas programaticas.
 - 2026-02-14: Integracion global de GTM (`NEXT_PUBLIC_GTM_ID`) y tracking SPA de `page_view` por cambio de ruta; GA4 preparado via GTM con `NEXT_PUBLIC_GA4_ID`.
 - 2026-02-14: Tracking de conversion WhatsApp migrado a delegacion global con payload estandar `cta_whatsapp_click` y clasificacion via `data-*` en templates de landing/blog.
+- 2026-02-14: Se alinea el snippet GTM al formato oficial y se refuerza que `NEXT_PUBLIC_GTM_ID`/`NEXT_PUBLIC_GA4_ID` deben estar definidos en el entorno de build/deploy.
