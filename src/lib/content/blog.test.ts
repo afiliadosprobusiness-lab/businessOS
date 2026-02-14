@@ -8,7 +8,8 @@ describe("blog loader", () => {
     expect(post).not.toBeNull();
     expect(post?.ctaVariant).toBe("soft");
     expect(post?.ctaLanding).toBe("/crm-para-odontologos");
-    expect(post?.ctaMessage).toContain("CRM para pyme");
+    expect(post?.ctaMessage).toContain("BusinessOS");
+    expect(post?.ctaMessage).toContain("Leads Widget + Fast Page + ContApp");
   });
 
   it("usa CTA default cuando no hay configuracion", () => {

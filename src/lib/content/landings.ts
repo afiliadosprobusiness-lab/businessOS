@@ -1,4 +1,11 @@
 import type { LandingContent, LandingFaq, LandingStep } from "@/lib/content/types";
+import {
+  BUSINESSOS_MODULES_COPY,
+  BUSINESSOS_POSITIONING,
+  buildBusinessOSWhatsAppMessage,
+  buildLandingCrmSecondary,
+  buildLandingHeadline,
+} from "@/lib/copy";
 
 const landingModules = import.meta.glob("../../../content/landings/*.json", {
   eager: true,
@@ -48,6 +55,45 @@ const ensureFaqArray = (value: unknown) =>
   Array.isArray(value)
     ? value.filter((faq) => typeof faq?.question === "string" && typeof faq?.answer === "string")
     : [];
+
+const ensureCrmClarificationFaq = (faqs: LandingFaq[]) => {
+  const hasClarification = faqs.some((faq) => faq.question.toLowerCase().includes("esto es un crm"));
+
+  if (hasClarification) {
+    return faqs;
+  }
+
+  return [
+    ...faqs,
+    {
+      question: "Esto es un CRM?",
+      answer:
+        "Es un sistema mas completo que un CRM tradicional: combina Leads Widget, Fast Page y ContApp para captar, dar seguimiento y cerrar por WhatsApp.",
+    },
+  ];
+};
+
+const includesHaveModules = (items: string[]) =>
+  items.some((item) => item.toLowerCase().includes("leads widget")) &&
+  items.some((item) => item.toLowerCase().includes("fast page")) &&
+  items.some((item) => item.toLowerCase().includes("contapp"));
+
+const ensureBusinessOSIncludes = (items: string[]) => (includesHaveModules(items) ? items : [...BUSINESSOS_MODULES_COPY.includes]);
+
+const buildSeoDescription = (original: string, keyword: string, city: string) => {
+  const normalizedKeyword = keyword.toLowerCase();
+  const originalText = original || "";
+
+  if (normalizedKeyword.includes("crm")) {
+    return `Buscas ${keyword}? BusinessOS es una alternativa moderna al CRM tradicional con Leads Widget, Fast Page y ContApp para captar, dar seguimiento y cerrar por WhatsApp en ${city}.`;
+  }
+
+  if (originalText.toLowerCase().includes("businessos")) {
+    return originalText;
+  }
+
+  return `${originalText} Incluye Leads Widget, Fast Page y ContApp para captar, dar seguimiento y cerrar por WhatsApp en ${city}.`.trim();
+};
 
 const replaceTokens = (value: string, tokens: Record<string, string>) =>
   Object.entries(tokens).reduce((acc, [key, replacement]) => acc.replaceAll(`{${key}}`, replacement), value);
@@ -194,6 +240,7 @@ const toLanding = (filePath: string, value: unknown): LandingContent | null => {
     ? source.faqs.filter((faq) => typeof faq?.question === "string" && typeof faq?.answer === "string")
     : [];
   const targeting = deriveNicheCity(slug, source.keyword);
+  const staticIncludes = source.includes?.items || [];
 
   return {
     slug,
@@ -206,17 +253,18 @@ const toLanding = (filePath: string, value: unknown): LandingContent | null => {
     variant: source.variant || slug,
     seo: {
       title: source.seo.title,
-      description: source.seo.description,
+      description: buildSeoDescription(source.seo.description || "", source.keyword, targeting.city),
       canonicalPath: source.seo.canonicalPath || `/${slug}`,
       ogImage: source.seo.ogImage,
       schemaType: source.seo.schemaType || "Service",
     },
     hero: {
-      eyebrow: source.hero.eyebrow || "BusinessOS",
-      headline: source.keyword,
-      subheadline: source.hero.subheadline || "",
+      eyebrow: source.hero.eyebrow || BUSINESSOS_POSITIONING.primary,
+      headline: buildLandingHeadline(targeting.niche, targeting.city),
+      subheadline: BUSINESSOS_MODULES_COPY.hero,
+      contextLine: buildLandingCrmSecondary(targeting.niche, targeting.city),
       ctaLabel: source.hero.ctaLabel || "Hablar por WhatsApp",
-      ctaMessage: source.hero.ctaMessage,
+      ctaMessage: buildBusinessOSWhatsAppMessage(targeting.niche, targeting.city),
     },
     intro: source.intro,
     problem: {
@@ -224,7 +272,10 @@ const toLanding = (filePath: string, value: unknown): LandingContent | null => {
       description: source.problem.description || "",
       bullets: ensureStringArray(source.problem.bullets),
     },
-    includes: source.includes,
+    includes: {
+      title: source.includes?.title || "Que incluye BusinessOS",
+      items: ensureBusinessOSIncludes(staticIncludes),
+    },
     benefits: {
       title: source.benefits.title || "Beneficios",
       items: ensureStringArray(source.benefits.items),
@@ -233,7 +284,7 @@ const toLanding = (filePath: string, value: unknown): LandingContent | null => {
       title: source.steps.title || "Como funciona en 3 pasos",
       items: steps.slice(0, 3),
     },
-    faqs,
+    faqs: ensureCrmClarificationFaq(faqs).slice(0, 6),
   };
 };
 
@@ -282,16 +333,17 @@ const createLandingFromCatalog = (niche: CatalogNiche, city: CatalogCity): Landi
     variant: `${niche.slug}-${city.slug}`,
     seo: {
       title: `CRM para ${niche.label} en ${city.name} | BusinessOS`,
-      description: `Implementa un CRM para ${niche.label} en ${city.name} y ordena captacion, seguimiento y cierre con BusinessOS.`,
+      description: `Alternativa moderna al CRM tradicional para ${niche.label} en ${city.name}: BusinessOS integra Leads Widget, Fast Page y ContApp.`,
       canonicalPath: `/${slug}`,
       schemaType: "Service",
     },
     hero: {
-      eyebrow: `BusinessOS para ${niche.label} en ${city.name}`,
-      headline: keyword,
-      subheadline: replaceTokens(supportTemplates[0] || introTemplates[0] || "", tokens),
+      eyebrow: BUSINESSOS_POSITIONING.primary,
+      headline: buildLandingHeadline(niche.label, city.name),
+      subheadline: BUSINESSOS_MODULES_COPY.hero,
+      contextLine: buildLandingCrmSecondary(niche.label, city.name),
       ctaLabel: catalogSource.heroCtaLabel || "Hablar por WhatsApp",
-      ctaMessage: `Hola, quiero implementar BusinessOS para ${niche.label} en ${city.name.toLowerCase()}`,
+      ctaMessage: buildBusinessOSWhatsAppMessage(niche.label, city.name),
     },
     intro: {
       title: `Como mejorar tu conversion comercial en ${city.name}`,
@@ -304,7 +356,7 @@ const createLandingFromCatalog = (niche: CatalogNiche, city: CatalogCity): Landi
     },
     includes: {
       title: "Que incluye BusinessOS",
-      items: catalogSource.includes,
+      items: ensureBusinessOSIncludes(catalogSource.includes),
     },
     benefits: {
       title: `Beneficios de BusinessOS para ${niche.label}`,
@@ -320,7 +372,7 @@ const createLandingFromCatalog = (niche: CatalogNiche, city: CatalogCity): Landi
         description: replaceTokens(step.description, tokens),
       })),
     },
-    faqs: faqItems,
+    faqs: ensureCrmClarificationFaq(faqItems).slice(0, 6),
   };
 };
 

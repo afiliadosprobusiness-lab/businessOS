@@ -14,4 +14,13 @@ describe("landing catalog loader", () => {
 
     expect(all.some((landing) => landing.slug === "crm-para-odontologos")).toBe(true);
   });
+
+  it("posiciona BusinessOS como sistema completo en hero y faq", () => {
+    const landing = getProgrammaticLandings().find((item) => item.slug === "crm-para-odontologos-en-lima");
+
+    expect(landing).toBeTruthy();
+    expect(landing?.hero.headline.toLowerCase().startsWith("sistema")).toBe(true);
+    expect(landing?.hero.subheadline).toContain("Leads Widget");
+    expect(landing?.faqs.some((faq) => faq.question.toLowerCase().includes("esto es un crm"))).toBe(true);
+  });
 });

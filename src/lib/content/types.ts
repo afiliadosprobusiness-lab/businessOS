@@ -45,6 +45,7 @@ export interface LandingContent {
     eyebrow: string;
     headline: string;
     subheadline: string;
+    contextLine?: string;
     ctaLabel: string;
     ctaMessage?: string;
   };

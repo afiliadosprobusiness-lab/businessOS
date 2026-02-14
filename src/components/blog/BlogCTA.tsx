@@ -38,10 +38,16 @@ const BlogCTA = ({
       aria-label={`Llamado a la accion para ${slug}`}
     >
       <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">BusinessOS</p>
-      <h2 className="mt-2 font-display text-2xl font-bold tracking-tight text-foreground">Quieres que lo instalemos en 24h?</h2>
+      <h2 className="mt-2 font-display text-2xl font-bold tracking-tight text-foreground">
+        Quieres instalar BusinessOS en 24h?
+      </h2>
       <ul className="mt-4 space-y-2 text-sm text-text-secondary sm:text-base">
-        <li className="rounded-xl border border-border/80 bg-card/80 px-3 py-2">Centraliza leads de WhatsApp en un solo tablero.</li>
-        <li className="rounded-xl border border-border/80 bg-card/80 px-3 py-2">Automatiza seguimiento y cierre con procesos claros.</li>
+        <li className="rounded-xl border border-border/80 bg-card/80 px-3 py-2">
+          Activa Leads Widget + Fast Page para captar oportunidades con mejor intencion.
+        </li>
+        <li className="rounded-xl border border-border/80 bg-card/80 px-3 py-2">
+          Usa ContApp para automatizar seguimiento y cierre comercial por WhatsApp.
+        </li>
       </ul>
 
       <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">

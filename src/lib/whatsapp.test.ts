@@ -12,6 +12,8 @@ describe("buildWhatsAppUrl", () => {
   it("crea mensaje estandar con nicho y ciudad", () => {
     const message = buildBusinessOSMessage("Odontologos", "Lima");
 
-    expect(message).toBe("Hola, quiero implementar BusinessOS para odontologos en lima");
+    expect(message).toBe(
+      "Hola, vi el sistema BusinessOS para odontologos en lima y quiero instalar Leads Widget + Fast Page + ContApp. Mi nombre es: ___",
+    );
   });
 });

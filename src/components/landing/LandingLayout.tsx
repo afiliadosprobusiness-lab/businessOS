@@ -3,6 +3,7 @@ import { MessageCircle, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import type { LandingContent } from "@/lib/content";
+import { BUSINESSOS_MODULES_COPY } from "@/lib/copy";
 import { SOLUTIONS_ROUTE } from "@/lib/routes";
 
 interface LandingLayoutProps {
@@ -11,11 +12,7 @@ interface LandingLayoutProps {
   onCtaClick: (variant: string) => void;
 }
 
-const defaultIncludes = [
-  "Leads Widget: captura y califica oportunidades en un solo flujo.",
-  "Fast Page: pagina enfocada en conversion para atraer demanda calificada.",
-  "ContApp: orden financiero y operativo para sostener el crecimiento.",
-];
+const defaultIncludes = BUSINESSOS_MODULES_COPY.includes;
 
 const LandingLayout = ({ landing, whatsappUrl, onCtaClick }: LandingLayoutProps) => {
   const introParagraphs = landing.intro?.paragraphs || [];
@@ -54,9 +51,14 @@ const LandingLayout = ({ landing, whatsappUrl, onCtaClick }: LandingLayoutProps)
             <div className="max-w-3xl rounded-3xl border border-border bg-card/90 p-6 shadow-card backdrop-blur sm:p-10">
               <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent sm:text-sm">{landing.hero.eyebrow}</p>
               <h1 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-foreground sm:text-5xl">
-                {landing.keyword}
+                {landing.hero.headline}
               </h1>
               <p className="mt-4 text-base leading-relaxed text-text-secondary sm:text-lg">{landing.hero.subheadline}</p>
+              {landing.hero.contextLine ? (
+                <p className="mt-3 rounded-xl border border-border/80 bg-surface-subtle px-3 py-2 text-sm font-medium text-text-secondary">
+                  {landing.hero.contextLine}
+                </p>
+              ) : null}
 
               <Button asChild variant="hero" size="lg" className="mt-7 h-12 rounded-full px-8" onClick={() => onCtaClick("hero")}>
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">

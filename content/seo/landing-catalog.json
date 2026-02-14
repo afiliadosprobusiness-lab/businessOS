@@ -377,6 +377,10 @@
     {
       "question": "BusinessOS se adapta al ritmo comercial de {city}?",
       "answer": "Si. El flujo se configura segun volumen de leads, equipo y tipo de servicio de tu negocio."
+    },
+    {
+      "question": "Esto es un CRM?",
+      "answer": "Es un sistema mas completo que un CRM tradicional: integra Leads Widget, Fast Page y ContApp para captar, dar seguimiento y cerrar por WhatsApp."
     }
   ],
   "stepTemplates": [
@@ -394,9 +398,9 @@
     }
   ],
   "includes": [
-    "Leads Widget: captura y califica oportunidades en un solo flujo.",
-    "Fast Page: paginas enfocadas en conversion para atraer demanda calificada.",
-    "ContApp: orden operativo y financiero para sostener el crecimiento comercial."
+    "Leads Widget: centraliza leads y acelera el primer contacto comercial.",
+    "Fast Page: convierte trafico en oportunidades con una experiencia enfocada en accion.",
+    "ContApp: ordena finanzas, facturacion e impuestos del negocio."
   ],
   "heroCtaLabel": "Hablar por WhatsApp"
 }
