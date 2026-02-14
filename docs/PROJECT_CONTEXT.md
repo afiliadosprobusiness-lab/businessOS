@@ -18,6 +18,7 @@ Keep this document current so contributors and agents can ship safely.
 ## Content Architecture
 
 - Blog posts: `content/blog/*.mdx`.
+- Blog files prefixed with `_` are treated as templates and excluded from `/blog` and sitemap.
 - Static SEO landings: `content/landings/*.json`.
 - Programmatic SEO catalog: `content/seo/landing-catalog.json`.
 - Content loaders: `src/lib/content`.

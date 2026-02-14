@@ -26,13 +26,20 @@ const extractSlugFromPath = (filePath: string) => {
   return match?.[1] || "";
 };
 
+const isTemplateSlug = (slug: string) => slug.startsWith("_");
+
 const blogPostsCache: BlogPost[] = Object.entries(blogPostModules)
   .map(([filePath, rawContent]) => {
     try {
       const { frontmatter, body } = parseMdxFrontmatter(rawContent);
+      const slug = extractSlugFromPath(filePath);
+
+      if (!slug || isTemplateSlug(slug)) {
+        return null;
+      }
 
       return {
-        slug: extractSlugFromPath(filePath),
+        slug,
         title: frontmatter.title || "Post sin titulo",
         description: frontmatter.description || "",
         date: frontmatter.date || "1970-01-01",
@@ -50,7 +57,7 @@ const blogPostsCache: BlogPost[] = Object.entries(blogPostModules)
       return null;
     }
   })
-  .filter((post): post is BlogPost => Boolean(post?.slug))
+  .filter((post): post is BlogPost => Boolean(post))
   .sort((a, b) => (a.date < b.date ? 1 : -1));
 
 export const getAllBlogPosts = () => blogPostsCache;

@@ -98,6 +98,7 @@ Frontmatter opcional de conversion:
 Regla:
 
 - Todos los posts deben renderizar CTA final automaticamente desde template (sin edicion manual por post).
+- Archivos con prefijo `_` en `content/blog` se consideran plantillas y no deben publicarse en `/blog` ni en sitemap.
 
 ### Landings
 
@@ -200,6 +201,10 @@ Breaking changes requieren:
 
 ## Changelog del Contrato
 
+- Fecha: 2026-02-14
+- Cambio: Se excluyen archivos plantilla con prefijo `_` del blog publico y del sitemap.
+- Tipo: Non-breaking
+- Impacto: frontend, SEO, contenido
 - Fecha: 2026-02-14
 - Cambio: Se estandariza formato de mensaje de CTA WhatsApp por nicho/ciudad y se define fallback de numero `+51 924 464 410`.
 - Tipo: Non-breaking

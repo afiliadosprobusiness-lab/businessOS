@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { getBlogPostBySlug } from "@/lib/content";
+import { getAllBlogPosts, getBlogPostBySlug } from "@/lib/content";
 
 describe("blog loader", () => {
   it("lee configuracion CTA desde frontmatter", () => {
@@ -17,5 +17,13 @@ describe("blog loader", () => {
 
     expect(post).not.toBeNull();
     expect(post?.ctaVariant).toBe("default");
+  });
+
+  it("no publica archivos plantilla del blog", () => {
+    const templatePost = getBlogPostBySlug("_template-businessos");
+    const allPosts = getAllBlogPosts();
+
+    expect(templatePost).toBeNull();
+    expect(allPosts.some((post) => post.slug.startsWith("_"))).toBe(false);
   });
 });

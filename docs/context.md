@@ -28,6 +28,7 @@ La web tiene dos objetivos de negocio:
 ## Arquitectura de Contenido
 
 - Blog file-based: `content/blog/*.mdx`.
+- Archivos blog que empiezan con `_` son plantillas internas y no se publican en `/blog` ni en sitemap.
 - Landings estaticas: `content/landings/*.json`.
 - Landings programaticas (50): catalogo en `content/seo/landing-catalog.json`.
 - Loader reutilizable en `src/lib/content`.

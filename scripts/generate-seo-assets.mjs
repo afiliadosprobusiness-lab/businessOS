@@ -13,7 +13,7 @@ const getSlugsByExtension = async (directoryPath, extension) => {
   try {
     const files = await fs.readdir(directoryPath);
     return files
-      .filter((fileName) => fileName.endsWith(extension))
+      .filter((fileName) => fileName.endsWith(extension) && !fileName.startsWith("_"))
       .map((fileName) => fileName.replace(extension, ""));
   } catch {
     return [];
