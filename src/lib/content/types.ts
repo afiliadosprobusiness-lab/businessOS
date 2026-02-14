@@ -15,6 +15,9 @@ export interface BlogPost {
   category: string;
   tags: string[];
   image?: string;
+  ctaVariant: "default" | "soft" | "none";
+  ctaLanding?: string;
+  ctaMessage?: string;
   body: string;
 }
 
@@ -32,6 +35,11 @@ export interface LandingContent {
   slug: string;
   keyword: string;
   variant: string;
+  source?: "static" | "catalog";
+  nicheSlug?: string;
+  citySlug?: string;
+  niche?: string;
+  city?: string;
   seo: SeoContent;
   hero: {
     eyebrow: string;
@@ -46,6 +54,14 @@ export interface LandingContent {
     bullets: string[];
   };
   benefits: {
+    title: string;
+    items: string[];
+  };
+  intro?: {
+    title: string;
+    paragraphs: string[];
+  };
+  includes?: {
     title: string;
     items: string[];
   };

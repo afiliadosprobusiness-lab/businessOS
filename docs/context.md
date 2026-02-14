@@ -1,25 +1,21 @@
-# Contexto del Proyecto - BusinessOS Landing
+# Contexto del Proyecto - BusinessOS
 
 ## Producto
 
-BusinessOS es un sistema integral que incluye:
+BusinessOS es un sistema integral que combina:
 
-- FastPage -> creacion de landing pages optimizadas.
-- Leads Widget -> sistema de precalificacion de leads.
-- ContApp -> sistema de gestion contable.
+- Fast Page (captacion y conversion web)
+- Leads Widget (captura y calificacion)
+- ContApp (orden operativo/financiero)
 
-BusinessOS se comercializa como un pack completo, no como herramientas individuales.
-
----
+El producto se comercializa como pack operativo completo.
 
 ## Objetivo del Proyecto
 
-Desarrollar una web orientada a conversion con dos objetivos operativos:
+La web tiene dos objetivos de negocio:
 
-- Agendar demos del pack completo BusinessOS.
-- Captar demanda organica SEO por nicho y convertirla a conversaciones por WhatsApp.
-
----
+- Agendar demos del sistema BusinessOS.
+- Captar demanda organica SEO y convertirla a conversaciones por WhatsApp.
 
 ## Stack Tecnologico
 
@@ -27,66 +23,76 @@ Desarrollar una web orientada a conversion con dos objetivos operativos:
 - TailwindCSS + shadcn/ui.
 - React Router DOM.
 - Cal.com embed react SDK (`@calcom/embed-react`).
-- Deploy objetivo en Vercel/static hosting.
-- Arquitectura frontend-first, sin backend propio en el MVP.
+- Frontend-first sin backend propio.
 
----
+## Arquitectura de Contenido
 
-## Arquitectura General
-
-- Landing principal estatica optimizada para conversion.
-- Modulo Blog SEO con contenido basado en archivos `content/blog/*.mdx`.
-- Landings SEO por nicho con contenido basado en archivos `content/landings/*.json`.
-- Loader reutilizable de contenido en `src/lib/content`.
-- Layout reusable para landings en `src/components/landing/LandingLayout.tsx`.
-- Capa SEO reutilizable en cliente (`src/components/SEO.tsx`) para metadata, OpenGraph, Twitter y JSON-LD.
-- Generacion automatica de `public/sitemap.xml` y `public/robots.txt` en prebuild (`scripts/generate-seo-assets.mjs`).
-
----
+- Blog file-based: `content/blog/*.mdx`.
+- Landings estaticas: `content/landings/*.json`.
+- Landings programaticas (50): catalogo en `content/seo/landing-catalog.json`.
+- Loader reutilizable en `src/lib/content`.
 
 ## Rutas
 
-- `/` -> landing principal.
-- `/agendar-demo` -> agenda demo con Cal inline embed.
-- `/agenda-confirmada` -> confirmacion post booking.
-- `/blog` -> indice de articulos.
-- `/blog/:slug` -> detalle de articulo SEO.
-- `/:landingSlug` -> landing SEO dinamica por archivo (ej. `/crm-para-odontologos`).
+- `/`
+- `/es`
+- `/en`
+- `/agendar-demo`
+- `/agenda-confirmada`
+- `/blog`
+- `/blog/:slug`
+- `/soluciones`
+- `/:landingSlug`
 
----
+`/:landingSlug` soporta slugs de landings estaticas y programaticas.
 
 ## Flujos Principales
 
-### Flujo Demo
+### Demo
 
-1. Usuario hace click en cualquier CTA de demo.
-2. Frontend navega a `/agendar-demo`.
-3. Cal inline embed permite reservar horario.
-4. Si no hay disponibilidad, se ofrece fallback por WhatsApp.
-5. En `bookingSuccessfulV2`, redireccion a `/agenda-confirmada`.
+1. CTA de demo -> `/agendar-demo`.
+2. Reserva con Cal inline embed.
+3. Si no hay horario, fallback a WhatsApp.
+4. `bookingSuccessfulV2` -> `/agenda-confirmada`.
 
-### Flujo Blog
+### Blog
 
 1. Usuario entra a `/blog`.
-2. Revisa listado de posts generado desde archivos MDX.
-3. Navega a `/blog/:slug` con metadata y schema `BlogPosting`.
+2. Lista de posts desde MDX.
+3. Detalle en `/blog/:slug`.
+4. CTA automatico al final de todos los posts.
+5. CTA inline opcional por frontmatter (`ctaVariant: soft`).
 
-### Flujo Landings SEO
+### Landings SEO
 
-1. Usuario llega a una landing nichada (`/:landingSlug`).
-2. Consume propuesta de valor por secciones (problema, beneficios, 3 pasos, FAQs).
-3. Hace click en CTA WhatsApp (hero o boton flotante persistente).
-4. Si existe tracking (gtag/dataLayer), se dispara `cta_whatsapp_click` con `{ page, variant }`.
+1. Usuario llega a una landing de nicho/ciudad.
+2. Landing renderiza H1 keyword exacta + intro + problema + incluye + beneficios + 3 pasos + FAQs.
+3. CTA WhatsApp en hero y boton flotante persistente.
 
----
+### Soluciones
 
-## Integraciones Externas
+- `/soluciones` lista las 50 landings programaticas con filtros por rubro y ciudad.
 
-- Cal.com para agenda de demos.
-- WhatsApp como mecanismo principal de conversion en landings SEO.
-- Tracking opcional compatible con `window.gtag` y/o `window.dataLayer`.
+## SEO Tecnico
 
----
+- Metadata completa por pagina (title, description, canonical).
+- OpenGraph + Twitter Cards.
+- JSON-LD:
+  - `BlogPosting` en `/blog/:slug`.
+  - `Service`/`WebPage` en landings.
+- `prebuild` genera:
+  - `public/sitemap.xml`
+  - `public/robots.txt`
+
+Sitemap incluye rutas estaticas, blog y landings estaticas + programaticas.
+
+## Tracking
+
+Si existe tracking (`window.gtag` o `window.dataLayer`):
+
+- Evento: `cta_whatsapp_click`
+- Landings: `{ page, variant }`
+- Blog: `{ page, variant: blog_end|blog_inline, source: blog, slug }`
 
 ## Variables de Entorno
 
@@ -96,27 +102,21 @@ Requeridas:
 
 Opcionales:
 
-- `VITE_SITE_URL` -> base URL para canonical/sitemap/robots.
-- `VITE_WhatsAppNumber` o `VITE_WHATSAPP_NUMBER` -> numero WhatsApp destino.
-- `VITE_WhatsAppDefaultMessage` o `VITE_WHATSAPP_DEFAULT_MESSAGE` -> mensaje por defecto para CTA WhatsApp.
-
----
+- `VITE_SITE_URL`
+- `VITE_WhatsAppNumber` o `VITE_WHATSAPP_NUMBER`
+- `VITE_WhatsAppDefaultMessage` o `VITE_WHATSAPP_DEFAULT_MESSAGE`
 
 ## Seguridad
 
-- El frontend no maneja secretos.
-- No se almacenan datos sensibles en la landing.
-- Esta prohibida la ejecucion de codigo desde contenido persistido.
-- No existe exposicion de claves privadas en el cliente.
-
----
+- No se manejan secretos en frontend.
+- No se ejecuta codigo desde contenido persistido.
+- No se exponen claves privadas.
 
 ## Cambios Recientes
 
-- 2026-02-14: Se implemento modulo Blog SEO (`/blog` + `/blog/:slug`) con contenido en `content/blog/*.mdx`.
-- 2026-02-14: Se implementaron landings SEO dinamicas por archivo con CTA WhatsApp en hero y boton flotante persistente.
-- 2026-02-14: Se agrego capa SEO reutilizable para metadata, OG, Twitter y JSON-LD en paginas existentes y nuevas.
-- 2026-02-14: Se agrego script de generacion automatica de `sitemap.xml` y `robots.txt` en prebuild.
-- 2026-02-13: Se agrego switch de modo oscuro en navbar (desktop y mobile) con aplicacion global tambien en `/agendar-demo`.
-- 2026-02-13: Flujo de demo migrado de popup externo a ruta interna `/agendar-demo` con Cal inline embed.
-- 2026-02-13: Se agrego ruta `/agenda-confirmada` y redireccion automatica despues de `bookingSuccessfulV2`.
+- 2026-02-14: Se estandarizaron mensajes de CTA WhatsApp con formato `Hola, quiero implementar BusinessOS para [nicho] en [ciudad]` y numero por defecto `+51 924 464 410`.
+- 2026-02-14: CTA automatico de blog (fin obligatorio + inline opcional por frontmatter) con tracking.
+- 2026-02-14: Generador de 50 landings SEO (nicho x ciudad Peru) desde catalogo de archivos.
+- 2026-02-14: Nueva ruta `/soluciones` con filtros y listado de landings programaticas.
+- 2026-02-14: Mejora profunda de contenidos en posts existentes (estructura, enlaces internos y valor practico).
+- 2026-02-14: Sitemap/robots ampliados para cubrir rutas programaticas.

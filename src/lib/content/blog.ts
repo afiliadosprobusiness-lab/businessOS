@@ -13,6 +13,14 @@ const parseTags = (rawTags: string | undefined) =>
     .map((tag) => tag.trim())
     .filter(Boolean);
 
+const parseCtaVariant = (value?: string): "default" | "soft" | "none" => {
+  if (value === "soft" || value === "none") {
+    return value;
+  }
+
+  return "default";
+};
+
 const extractSlugFromPath = (filePath: string) => {
   const match = filePath.match(/\/([^/]+)\.mdx$/);
   return match?.[1] || "";
@@ -32,6 +40,9 @@ const blogPostsCache: BlogPost[] = Object.entries(blogPostModules)
         category: frontmatter.category || "General",
         tags: parseTags(frontmatter.tags),
         image: frontmatter.image,
+        ctaVariant: parseCtaVariant(frontmatter.ctaVariant),
+        ctaLanding: frontmatter.ctaLanding,
+        ctaMessage: frontmatter.ctaMessage,
         body,
       };
     } catch (error) {

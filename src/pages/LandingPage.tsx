@@ -5,7 +5,7 @@ import NotFound from "@/pages/NotFound";
 import { getLandingBySlug } from "@/lib/content";
 import { buildAbsoluteUrl } from "@/lib/site";
 import { trackEvent } from "@/lib/analytics";
-import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { buildBusinessOSMessage, buildWhatsAppUrl } from "@/lib/whatsapp";
 
 const LandingPage = () => {
   const { landingSlug } = useParams();
@@ -16,7 +16,9 @@ const LandingPage = () => {
   }
 
   const pagePath = `/${landing.slug}`;
-  const whatsappUrl = buildWhatsAppUrl(landing.hero.ctaMessage);
+  const whatsappUrl = buildWhatsAppUrl(
+    buildBusinessOSMessage(landing.niche || "negocio", landing.city || "peru"),
+  );
 
   const handleCtaClick = (variant: string) => {
     trackEvent("cta_whatsapp_click", {

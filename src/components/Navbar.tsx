@@ -30,6 +30,9 @@ const Navbar = () => {
               <Button asChild variant="hero-outline" size="sm" className="h-10 rounded-full px-4 sm:px-5">
                 <Link to="/blog">Blog</Link>
               </Button>
+              <Button asChild variant="hero-outline" size="sm" className="h-10 rounded-full px-4 sm:px-5">
+                <Link to="/soluciones">Soluciones</Link>
+              </Button>
               <ThemeToggle />
               <CalBookingButton variant="hero" size="sm" className="h-10 rounded-full px-4 sm:px-5">
                 Agendar demo
@@ -66,6 +69,14 @@ const Navbar = () => {
                           className="block rounded-xl border border-border bg-card px-3 py-2 text-sm font-medium text-text-secondary transition-colors duration-200 hover:border-accent/40 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                         >
                           Blog
+                        </Link>
+                      </SheetClose>
+                      <SheetClose asChild>
+                        <Link
+                          to="/soluciones"
+                          className="block rounded-xl border border-border bg-card px-3 py-2 text-sm font-medium text-text-secondary transition-colors duration-200 hover:border-accent/40 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                        >
+                          Soluciones
                         </Link>
                       </SheetClose>
                       {navLinks.map((link) => (

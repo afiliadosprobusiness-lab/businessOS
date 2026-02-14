@@ -6,14 +6,14 @@ import SEO from "@/components/SEO";
 import Cal, { getCalApi } from "@calcom/embed-react";
 import { DEMO_CONFIRMATION_ROUTE } from "@/lib/routes";
 import { buildAbsoluteUrl } from "@/lib/site";
-import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { buildBusinessOSMessage, buildWhatsAppUrl } from "@/lib/whatsapp";
 
 const CAL_NAMESPACE = "meet-demo-businessos";
 const CAL_LINK = "afiliados-pro-business/meet-demo-businessos";
 
 const ScheduleDemo = () => {
   const navigate = useNavigate();
-  const whatsappFallbackUrl = buildWhatsAppUrl("Hola, no encontre horarios disponibles para demo en BusinessOS");
+  const whatsappFallbackUrl = buildWhatsAppUrl(buildBusinessOSMessage("negocio", "peru"));
 
   useEffect(() => {
     let isMounted = true;

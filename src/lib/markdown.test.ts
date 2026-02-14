@@ -16,4 +16,10 @@ describe("markdownToHtml", () => {
     expect(html).toContain("&lt;script&gt;alert(1)&lt;/script&gt;");
     expect(html).not.toContain("<script>");
   });
+
+  it("soporta enlaces internos relativos", () => {
+    const html = markdownToHtml("[Ver soluciones](/soluciones)");
+
+    expect(html).toContain('<a href="/soluciones">Ver soluciones</a>');
+  });
 });

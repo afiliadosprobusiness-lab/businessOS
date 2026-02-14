@@ -1,0 +1,402 @@
+{
+  "niches": [
+    {
+      "slug": "odontologos",
+      "label": "odontologos",
+      "businessLabel": "consultorios odontologicos",
+      "painPoints": [
+        "Consultas por WhatsApp sin seguimiento en menos de 24 horas.",
+        "Poca visibilidad sobre pacientes que pidieron precio y no agendaron.",
+        "Agenda comercial separada del proceso de cierre de tratamientos."
+      ],
+      "benefits": [
+        "Pipeline por tipo de tratamiento y estado del paciente.",
+        "Recordatorios automaticos para seguimiento de presupuestos.",
+        "Panel para ver que canal trae pacientes con mayor ticket."
+      ],
+      "faq": [
+        {
+          "question": "Sirve para clinicas pequenas en {city}?",
+          "answer": "Si. Se adapta a equipos pequenos y permite ordenar captacion y seguimiento sin procesos complejos."
+        },
+        {
+          "question": "Puedo usarlo si ya trabajo con WhatsApp Business?",
+          "answer": "Si. BusinessOS organiza el seguimiento comercial sin obligarte a cambiar el canal principal."
+        },
+        {
+          "question": "Ayuda a confirmar citas?",
+          "answer": "Si. Puedes configurar tareas y recordatorios para reducir ausencias y mejorar ocupacion."
+        },
+        {
+          "question": "Cuanto tarda implementar el sistema?",
+          "answer": "Normalmente en pocos dias, segun el nivel de orden actual del equipo comercial."
+        }
+      ]
+    },
+    {
+      "slug": "inmobiliarias",
+      "label": "inmobiliarias",
+      "businessLabel": "equipos inmobiliarios",
+      "painPoints": [
+        "Leads de portales y anuncios llegan sin criterios de prioridad.",
+        "Seguimiento de visitas depende de cada asesor.",
+        "Dificultad para saber que proyecto cierra mejor por canal."
+      ],
+      "benefits": [
+        "Asignacion de leads por reglas comerciales.",
+        "Historial de contacto por cliente en un solo lugar.",
+        "Reporte por asesor, proyecto y etapa del embudo."
+      ],
+      "faq": [
+        {
+          "question": "Se puede usar para venta y alquiler en {city}?",
+          "answer": "Si. Puedes crear flujos separados para venta, alquiler y proyectos nuevos."
+        },
+        {
+          "question": "Controla rendimiento por asesor?",
+          "answer": "Si. Tendras visibilidad de respuesta, visitas y cierres por cada asesor."
+        },
+        {
+          "question": "Se adapta a inmobiliarias pequenas?",
+          "answer": "Si. Funciona desde equipos compactos hasta operaciones con varios asesores."
+        },
+        {
+          "question": "Puedo mantener mi forma actual de captar leads?",
+          "answer": "Si. El sistema ordena lo que ya usas para que el seguimiento sea consistente."
+        }
+      ]
+    },
+    {
+      "slug": "coaches",
+      "label": "coaches",
+      "businessLabel": "negocios de coaching y consultoria",
+      "painPoints": [
+        "Prospectos tibios se enfrien por falta de seguimiento.",
+        "No hay trazabilidad de objeciones y avance de cada lead.",
+        "Renovaciones y upsells dependen de memoria del equipo."
+      ],
+      "benefits": [
+        "Embudo comercial claro desde discovery hasta cierre.",
+        "Automatizaciones de recordatorios y tareas por etapa.",
+        "Panel para mejorar conversion de llamadas a ventas."
+      ],
+      "faq": [
+        {
+          "question": "Funciona para coaches 1 a 1 y grupales en {city}?",
+          "answer": "Si. Puedes ajustar etapas para programas individuales, grupales o mixtos."
+        },
+        {
+          "question": "Necesito conocimientos tecnicos para usarlo?",
+          "answer": "No. Se implementa con flujo listo para operar y acompanamiento inicial."
+        },
+        {
+          "question": "Puedo mantener mis canales actuales?",
+          "answer": "Si. BusinessOS ordena tu proceso sin obligarte a cambiar toda tu operacion."
+        },
+        {
+          "question": "Ayuda a vender programas de alto ticket?",
+          "answer": "Si. La trazabilidad del seguimiento mejora cierre en ofertas de mayor valor."
+        }
+      ]
+    },
+    {
+      "slug": "gimnasios",
+      "label": "gimnasios",
+      "businessLabel": "gimnasios y estudios fitness",
+      "painPoints": [
+        "Leads de prueba gratis no reciben seguimiento oportuno.",
+        "Renovaciones de membresia no tienen proceso repetible.",
+        "No se distingue bien entre interesados y clientes listos para pagar."
+      ],
+      "benefits": [
+        "Seguimiento automatizado para leads de prueba.",
+        "Pipeline por estado de prospecto y tipo de plan.",
+        "Alertas para oportunidades sin gestionar."
+      ],
+      "faq": [
+        {
+          "question": "Sirve para gimnasios de barrio y cadenas en {city}?",
+          "answer": "Si. Se adapta a distintos tamanos y estilos de venta."
+        },
+        {
+          "question": "Se puede usar para ventas por WhatsApp?",
+          "answer": "Si. El sistema ordena cada conversacion comercial y su seguimiento."
+        },
+        {
+          "question": "Ayuda con renovaciones?",
+          "answer": "Si. Puedes gestionar recordatorios para disminuir fuga de membresias."
+        },
+        {
+          "question": "Requiere cambiar mis herramientas actuales?",
+          "answer": "No necesariamente. Puedes migrar por etapas mientras centralizas datos."
+        }
+      ]
+    },
+    {
+      "slug": "salones-de-belleza",
+      "label": "salones de belleza",
+      "businessLabel": "salones de belleza y estetica",
+      "painPoints": [
+        "Solicitudes de cita sin respuesta rapida en horas pico.",
+        "Seguimiento de clientes frecuentes sin estandar.",
+        "Dificultad para impulsar servicios premium de forma consistente."
+      ],
+      "benefits": [
+        "Orden comercial de citas, consultas y seguimiento.",
+        "Automatizacion de recordatorios y reactivacion.",
+        "Vista clara de servicios con mayor conversion."
+      ],
+      "faq": [
+        {
+          "question": "Funciona para salones pequenos en {city}?",
+          "answer": "Si. Permite profesionalizar seguimiento incluso con equipos reducidos."
+        },
+        {
+          "question": "Ayuda a vender paquetes premium?",
+          "answer": "Si. Puedes estructurar seguimiento para ofertas de mayor margen."
+        },
+        {
+          "question": "Puedo usarlo con reservas por WhatsApp?",
+          "answer": "Si. El canal se mantiene, pero con proceso comercial mas ordenado."
+        },
+        {
+          "question": "Se puede adaptar a varios locales?",
+          "answer": "Si. Se puede escalar con segmentacion por sede y equipo."
+        }
+      ]
+    },
+    {
+      "slug": "abogados",
+      "label": "abogados",
+      "businessLabel": "estudios de abogados",
+      "painPoints": [
+        "Consultas iniciales se pierden por falta de proceso comercial.",
+        "No hay priorizacion segun potencial del caso.",
+        "Seguimiento manual consume tiempo operativo."
+      ],
+      "benefits": [
+        "Pipeline de consultas por etapa comercial.",
+        "Recordatorios para seguimiento y cierre de propuestas.",
+        "Visibilidad de canales con mejor calidad de lead."
+      ],
+      "faq": [
+        {
+          "question": "Sirve para firmas pequenas en {city}?",
+          "answer": "Si. Mejora orden comercial sin complicar la operacion diaria."
+        },
+        {
+          "question": "Puedo clasificar casos por prioridad?",
+          "answer": "Si. El flujo permite etiquetar y priorizar oportunidades."
+        },
+        {
+          "question": "Reemplaza mi software legal?",
+          "answer": "No. Se enfoca en captacion y cierre comercial, complementando herramientas legales."
+        },
+        {
+          "question": "Ayuda a responder mas rapido?",
+          "answer": "Si. Los recordatorios y tareas reducen tiempos de respuesta."
+        }
+      ]
+    },
+    {
+      "slug": "restaurantes",
+      "label": "restaurantes",
+      "businessLabel": "restaurantes y dark kitchens",
+      "painPoints": [
+        "Consultas para reservas y eventos no siguen un flujo uniforme.",
+        "Leads de pedidos corporativos se enfrien sin seguimiento.",
+        "No hay control comercial por canal de captacion."
+      ],
+      "benefits": [
+        "Seguimiento de reservas, eventos y ventas B2B.",
+        "Pipeline comercial por tipo de oportunidad.",
+        "Automatizaciones para responder en tiempos cortos."
+      ],
+      "faq": [
+        {
+          "question": "Funciona para restaurantes pequenos en {city}?",
+          "answer": "Si. El flujo se adapta al volumen y tipo de servicio."
+        },
+        {
+          "question": "Sirve para eventos y catering?",
+          "answer": "Si. Puedes gestionar oportunidades de mayor ticket con seguimiento claro."
+        },
+        {
+          "question": "Se integra con ventas por WhatsApp?",
+          "answer": "Si. Es ideal para ordenar respuestas y cierres desde ese canal."
+        },
+        {
+          "question": "Ayuda a priorizar consultas valiosas?",
+          "answer": "Si. Permite diferenciar oportunidades de alto potencial."
+        }
+      ]
+    },
+    {
+      "slug": "veterinarias",
+      "label": "veterinarias",
+      "businessLabel": "clinicas veterinarias",
+      "painPoints": [
+        "Consultas por urgencias y controles se mezclan en el mismo canal.",
+        "Seguimiento post consulta sin proceso estandar.",
+        "Poca claridad sobre servicios con mayor recurrencia."
+      ],
+      "benefits": [
+        "Flujo comercial para nuevos pacientes y controles.",
+        "Alertas de seguimiento para tratamientos recurrentes.",
+        "Panel para optimizar captacion por canal."
+      ],
+      "faq": [
+        {
+          "question": "Sirve para veterinarias de barrio en {city}?",
+          "answer": "Si. Se adapta a clinicas pequenas y medianas con alta demanda diaria."
+        },
+        {
+          "question": "Ayuda a ordenar controles y seguimientos?",
+          "answer": "Si. Puedes automatizar tareas para no perder continuidad con clientes."
+        },
+        {
+          "question": "Puedo mantener WhatsApp como canal principal?",
+          "answer": "Si. El sistema organiza ese canal y reduce desorden operativo."
+        },
+        {
+          "question": "Me sirve para servicios premium?",
+          "answer": "Si. Permite gestionar seguimiento comercial para servicios de mayor valor."
+        }
+      ]
+    },
+    {
+      "slug": "academias",
+      "label": "academias",
+      "businessLabel": "academias y centros de formacion",
+      "painPoints": [
+        "Leads de matricula llegan por varios canales sin coordinacion.",
+        "Seguimiento a interesados se corta despues del primer contacto.",
+        "No hay trazabilidad por programa o sede."
+      ],
+      "benefits": [
+        "Embudo de matriculas por programa y etapa.",
+        "Automatizacion de seguimiento para postulantes.",
+        "Panel para analizar conversion por canal y oferta."
+      ],
+      "faq": [
+        {
+          "question": "Funciona para academias preuniversitarias en {city}?",
+          "answer": "Si. Puedes adaptar flujos por curso, ciclo y sede."
+        },
+        {
+          "question": "Sirve para cursos cortos y programas largos?",
+          "answer": "Si. El pipeline se configura segun duracion y tipo de oferta."
+        },
+        {
+          "question": "Ayuda con seguimiento a padres y alumnos?",
+          "answer": "Si. Permite ordenar contacto y prioridades por perfil de decision."
+        },
+        {
+          "question": "Se integra con ventas por WhatsApp?",
+          "answer": "Si. Puedes gestionar todo el proceso comercial desde un flujo centralizado."
+        }
+      ]
+    },
+    {
+      "slug": "psicologos",
+      "label": "psicologos",
+      "businessLabel": "consultorios psicologicos",
+      "painPoints": [
+        "Primeras consultas llegan con urgencia y se responden tarde.",
+        "No existe proceso uniforme para seguimiento de interesados.",
+        "Dificultad para sostener conversion de consultas a sesiones."
+      ],
+      "benefits": [
+        "Proceso comercial claro desde primer contacto hasta agenda.",
+        "Recordatorios para seguimiento de interesados.",
+        "Mejor visibilidad de canales con mayor conversion."
+      ],
+      "faq": [
+        {
+          "question": "Sirve para psicologos independientes en {city}?",
+          "answer": "Si. Se adapta tanto a consultorio individual como a equipos pequenos."
+        },
+        {
+          "question": "Puedo ordenar atencion por especialidad?",
+          "answer": "Si. Puedes estructurar el flujo segun tipo de servicio."
+        },
+        {
+          "question": "Me ayuda a reducir no-shows?",
+          "answer": "Si. El seguimiento disciplinado mejora confirmaciones y asistencia."
+        },
+        {
+          "question": "Necesito equipo tecnico para implementarlo?",
+          "answer": "No. Se implementa con guia practica y ajustes segun tu operacion."
+        }
+      ]
+    }
+  ],
+  "cities": [
+    {
+      "slug": "lima",
+      "name": "Lima",
+      "marketContext": "la competencia digital suele exigir respuestas rapidas y seguimiento disciplinado"
+    },
+    {
+      "slug": "arequipa",
+      "name": "Arequipa",
+      "marketContext": "el boca a boca sigue siendo fuerte, pero la captacion digital crece cada mes"
+    },
+    {
+      "slug": "trujillo",
+      "name": "Trujillo",
+      "marketContext": "los negocios que ordenan su embudo comercial suelen captar ventaja rapidamente"
+    },
+    {
+      "slug": "cusco",
+      "name": "Cusco",
+      "marketContext": "la mezcla de demanda local y estacional pide procesos comerciales consistentes"
+    },
+    {
+      "slug": "piura",
+      "name": "Piura",
+      "marketContext": "la velocidad de respuesta marca diferencia cuando la demanda aumenta"
+    }
+  ],
+  "introTemplates": [
+    "En {city}, muchos {businessLabel} captan interesados por anuncios, referidos y WhatsApp, pero sin un sistema comun la conversion cae por falta de seguimiento.",
+    "Si vendes servicios en {city}, sabes que llegar a un lead no basta. El reto real es responder a tiempo, priorizar oportunidades y cerrar de forma repetible.",
+    "Cuando el equipo comercial crece en {city} sin procesos claros, aparecen fugas en cada etapa: primer contacto, seguimiento, propuesta y cierre."
+  ],
+  "introSupportTemplates": [
+    "BusinessOS te ayuda a centralizar ese proceso para que cada consulta tenga duenio, cada tarea tenga fecha y cada oportunidad avance con claridad.",
+    "En lugar de operar con mensajes sueltos, puedes trabajar con pipeline, recordatorios y visibilidad de conversion por etapa.",
+    "El resultado es una operacion comercial mas predecible, con menos trabajo manual y mejor control del embudo de ventas."
+  ],
+  "problemDescriptionTemplates": [
+    "En {city}, {marketContext}. Sin procesos, los leads nuevos no reciben continuidad y la tasa de cierre se estanca.",
+    "El problema no es solo captar leads: es moverlos con metodo hasta la compra. Sin un flujo claro, el equipo pierde foco.",
+    "Muchos negocios invierten en captacion, pero al no tener trazabilidad del seguimiento terminan con oportunidades perdidas."
+  ],
+  "cityFaqTemplates": [
+    {
+      "question": "BusinessOS se adapta al ritmo comercial de {city}?",
+      "answer": "Si. El flujo se configura segun volumen de leads, equipo y tipo de servicio de tu negocio."
+    }
+  ],
+  "stepTemplates": [
+    {
+      "title": "Centralizamos captacion",
+      "description": "Conectamos formularios, WhatsApp y otros canales para que cada lead entre en un solo flujo comercial."
+    },
+    {
+      "title": "Activamos seguimiento",
+      "description": "Definimos etapas, tareas y recordatorios para que el equipo responda a tiempo y no pierda oportunidades."
+    },
+    {
+      "title": "Optimizamos conversion",
+      "description": "Revisamos resultados por etapa para mejorar decisiones comerciales y escalar lo que si convierte."
+    }
+  ],
+  "includes": [
+    "Leads Widget: captura y califica oportunidades en un solo flujo.",
+    "Fast Page: paginas enfocadas en conversion para atraer demanda calificada.",
+    "ContApp: orden operativo y financiero para sostener el crecimiento comercial."
+  ],
+  "heroCtaLabel": "Hablar por WhatsApp"
+}

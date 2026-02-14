@@ -1,5 +1,5 @@
 # Contrato del Proyecto - BusinessOS Landing
-Version: 3.1.0
+Version: 3.2.0
 
 Este documento es la fuente de verdad mecanica del sistema.
 Ningun cambio puede romper este contrato sin versionado explicito.
@@ -9,7 +9,7 @@ Ningun cambio puede romper este contrato sin versionado explicito.
 ## Primary Actions
 
 1. El usuario agenda una demo mediante pagina interna con embed inline de Cal.com.
-2. En landings SEO, el usuario inicia conversacion por WhatsApp como conversion principal.
+2. En landings SEO y blog, el usuario inicia conversacion por WhatsApp como conversion principal.
 
 ---
 
@@ -41,15 +41,6 @@ Estructura obligatoria:
   "currency": string
 }
 
-Configuracion actual:
-
-{
-  "setup_price": 279,
-  "monthly_price": 79,
-  "upgrade_price": 129,
-  "currency": "PEN"
-}
-
 Reglas:
 
 - No se pueden renombrar claves.
@@ -69,9 +60,15 @@ Rutas permitidas:
 - `/agenda-confirmada`
 - `/blog`
 - `/blog/:slug`
-- `/:landingSlug` (solo slugs definidos por archivos en `content/landings/*.json`)
+- `/soluciones`
+- `/:landingSlug`
 
-No se deben modificar rutas existentes sin version bump.
+Reglas:
+
+- No se deben eliminar ni renombrar rutas existentes sin version bump.
+- `/:landingSlug` solo puede resolver slugs definidos por contenido en:
+  - `content/landings/*.json`
+  - `content/seo/landing-catalog.json`
 
 ---
 
@@ -79,25 +76,46 @@ No se deben modificar rutas existentes sin version bump.
 
 ### Blog
 
-- Fuente de contenido: `content/blog/*.mdx`.
-- Cada archivo debe incluir frontmatter con:
-  - `title`
-  - `description`
-  - `date` (YYYY-MM-DD)
-  - `author`
-  - `category`
-  - `tags` (lista separada por comas)
+Fuente de contenido:
+
+- `content/blog/*.mdx`
+
+Frontmatter base por post:
+
+- `title`
+- `description`
+- `date` (YYYY-MM-DD)
+- `author`
+- `category`
+- `tags` (lista separada por comas)
+
+Frontmatter opcional de conversion:
+
+- `ctaVariant`: `default` | `soft` | `none`
+- `ctaLanding`: ruta recomendada (ej: `/crm-para-odontologos`)
+- `ctaMessage`: mensaje WhatsApp especifico del post
+
+Regla:
+
+- Todos los posts deben renderizar CTA final automaticamente desde template (sin edicion manual por post).
 
 ### Landings
 
-- Fuente de contenido: `content/landings/*.json`.
-- Cada landing debe incluir:
-  - `keyword` (H1 exacto)
-  - `problem`
-  - `benefits`
-  - `steps` (3 pasos)
-  - `faqs`
-  - `hero.ctaMessage` opcional por nicho
+Fuentes de contenido:
+
+- `content/landings/*.json` (estaticas)
+- `content/seo/landing-catalog.json` (programaticas)
+
+Regla minima por landing:
+
+- H1 keyword exacta
+- Intro
+- Problema
+- Seccion "Que incluye BusinessOS"
+- Beneficios
+- "Como funciona en 3 pasos"
+- FAQs
+- CTA WhatsApp en hero + flotante
 
 ---
 
@@ -110,18 +128,22 @@ Variables opcionales soportadas:
 
 Reglas:
 
-- Si no se define mensaje por landing, se usa mensaje por defecto.
-- CTA de WhatsApp debe existir en hero y boton flotante persistente para landings SEO.
+- Si no se define mensaje especifico (post o landing), usar mensaje por defecto.
+- Mensaje objetivo para CTA: `Hola, quiero implementar BusinessOS para [nicho] en [ciudad]`.
+- Numero por defecto fallback: `+51 924 464 410` (`51924464410`).
+- CTA WhatsApp debe existir en:
+  - landings SEO (hero + flotante)
+  - blog detail (CTA final automatico)
 
 ---
 
 ## SEO Technical Outputs
 
-- Metadata por pagina: `title`, `description`, canonical.
-- OpenGraph + Twitter Cards en todas las paginas.
+- Metadata por pagina: title, description, canonical.
+- OpenGraph + Twitter Cards.
 - JSON-LD:
   - `BlogPosting` para `/blog/:slug`.
-  - `Service` o `WebPage` para landings SEO.
+  - `Service` o `WebPage` para landings.
 - Archivos publicos obligatorios:
   - `/sitemap.xml`
   - `/robots.txt`
@@ -130,50 +152,62 @@ Sitemap debe incluir al menos:
 
 - `/blog`
 - todos los `/blog/:slug`
-- todos los slugs SEO de `content/landings/*.json`
+- todas las landings estaticas de `content/landings/*.json`
+- todas las landings programaticas derivadas del catalogo (`10 x 5 = 50`)
+- `/soluciones`
 
 ---
 
 ## Demo Booking Flow
 
-1. Usuario hace click en cualquier boton "Agendar demo".
+1. Usuario hace click en CTA de demo.
 2. Frontend navega a `/agendar-demo`.
-3. En `/agendar-demo` se muestra selector inline de Cal.com (`afiliados-pro-business/meet-demo-businessos`).
-4. Si no hay disponibilidad, frontend ofrece fallback a WhatsApp.
-5. Tras evento `bookingSuccessfulV2`, frontend redirige a `/agenda-confirmada`.
-6. Confirmacion final de agenda ocurre en Cal.com.
-
-La landing no almacena datos de la agenda.
+3. Se renderiza selector inline de Cal.com (`afiliados-pro-business/meet-demo-businessos`).
+4. Si no hay disponibilidad, se ofrece fallback a WhatsApp.
+5. Evento `bookingSuccessfulV2` redirige a `/agenda-confirmada`.
+6. Confirmacion final ocurre en Cal.com.
 
 ---
 
 ## Tracking Contract (Conditional)
 
-Si existe sistema de tracking (ej: `window.gtag` o `window.dataLayer`), al click en CTA WhatsApp de landings debe emitirse:
+Si existe tracking (`window.gtag` o `window.dataLayer`):
 
-- event: `cta_whatsapp_click`
-- params: `{ page, variant }`
+Evento: `cta_whatsapp_click`
+
+- Landings params: `{ page, variant }`
+- Blog params: `{ page, variant, source, slug }`
+  - `variant`: `blog_end` | `blog_inline`
+  - `source`: `blog`
 
 ---
 
 ## Backward Compatibility
 
-- Clientes existentes no deben verse afectados en contenido y rutas actuales.
-- Nuevas funcionalidades no deben romper:
-  - Form Data
-  - Pricing Configuration
-  - URL Structure
-  - Demo Booking Flow
+Nuevas funcionalidades no deben romper:
+
+- Form Data
+- Pricing Configuration
+- URL Structure
+- Demo Booking Flow
 
 Breaking changes requieren:
 
-- Actualizacion de version mayor.
-- Registro explicito del cambio en este documento.
+- Versionado explicito.
+- Registro en changelog del contrato.
 
 ---
 
 ## Changelog del Contrato
 
+- Fecha: 2026-02-14
+- Cambio: Se estandariza formato de mensaje de CTA WhatsApp por nicho/ciudad y se define fallback de numero `+51 924 464 410`.
+- Tipo: Non-breaking
+- Impacto: frontend, conversion, contenido
+- Fecha: 2026-02-14
+- Cambio: Se agrega CTA automatico en blog (final obligatorio + inline opcional por frontmatter), nueva ruta `/soluciones` y catalogo programatico de 50 landings SEO.
+- Tipo: Non-breaking
+- Impacto: frontend, routing, SEO, contenido, tracking
 - Fecha: 2026-02-14
 - Cambio: Se agrega modulo Blog SEO (`/blog`, `/blog/:slug`), landings SEO dinamicas por archivo y contrato de metadata/sitemap/robots.
 - Tipo: Non-breaking
@@ -186,11 +220,3 @@ Breaking changes requieren:
 - Cambio: Reemplazo de popup de Cal.com por ruta interna `/agendar-demo` con embed react inline y nueva ruta de confirmacion `/agenda-confirmada`.
 - Tipo: Breaking
 - Impacto: frontend, routing, booking flow
-- Fecha: 2026-02-13
-- Cambio: Cambio tecnico de modal/iframe embebido a popup de ventana Cal.com para evitar bloqueos de links externos (WhatsApp X-Frame-Options).
-- Tipo: Non-breaking
-- Impacto: frontend
-- Fecha: 2026-02-13
-- Cambio: Reemplazo de redireccion a Leads Widget por popup/modal embebido de Cal.com para agendamiento de demo.
-- Tipo: Breaking
-- Impacto: frontend, widget

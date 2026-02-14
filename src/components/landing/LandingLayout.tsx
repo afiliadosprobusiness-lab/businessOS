@@ -3,6 +3,7 @@ import { MessageCircle, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import type { LandingContent } from "@/lib/content";
+import { SOLUTIONS_ROUTE } from "@/lib/routes";
 
 interface LandingLayoutProps {
   landing: LandingContent;
@@ -10,7 +11,16 @@ interface LandingLayoutProps {
   onCtaClick: (variant: string) => void;
 }
 
+const defaultIncludes = [
+  "Leads Widget: captura y califica oportunidades en un solo flujo.",
+  "Fast Page: pagina enfocada en conversion para atraer demanda calificada.",
+  "ContApp: orden financiero y operativo para sostener el crecimiento.",
+];
+
 const LandingLayout = ({ landing, whatsappUrl, onCtaClick }: LandingLayoutProps) => {
+  const introParagraphs = landing.intro?.paragraphs || [];
+  const includesItems = landing.includes?.items?.length ? landing.includes.items : defaultIncludes;
+
   return (
     <div className="min-h-screen overflow-x-hidden bg-background pb-24">
       <header className="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur">
@@ -22,6 +32,9 @@ const LandingLayout = ({ landing, whatsappUrl, onCtaClick }: LandingLayoutProps)
           <div className="flex items-center gap-2">
             <Button asChild variant="hero-outline" size="sm" className="rounded-full">
               <Link to="/blog">Blog</Link>
+            </Button>
+            <Button asChild variant="hero-outline" size="sm" className="hidden rounded-full sm:inline-flex">
+              <Link to={SOLUTIONS_ROUTE}>Soluciones</Link>
             </Button>
             <Button asChild variant="hero" size="sm" className="rounded-full" onClick={() => onCtaClick("header")}>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
@@ -55,6 +68,19 @@ const LandingLayout = ({ landing, whatsappUrl, onCtaClick }: LandingLayoutProps)
           </div>
         </section>
 
+        {introParagraphs.length ? (
+          <section className="px-4 pb-6 sm:px-6 lg:px-8">
+            <div className="mx-auto w-full max-w-6xl rounded-3xl border border-border bg-card p-6 shadow-card sm:p-8">
+              <h2 className="font-display text-2xl font-bold tracking-tight text-foreground">{landing.intro?.title || "Contexto de tu mercado"}</h2>
+              <div className="mt-4 space-y-4 text-base leading-relaxed text-text-secondary">
+                {introParagraphs.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+            </div>
+          </section>
+        ) : null}
+
         <section className="px-4 py-14 sm:px-6 lg:px-8">
           <div className="mx-auto grid w-full max-w-6xl gap-8 lg:grid-cols-2">
             <article className="rounded-3xl border border-border bg-card p-6 shadow-card sm:p-8">
@@ -83,6 +109,21 @@ const LandingLayout = ({ landing, whatsappUrl, onCtaClick }: LandingLayoutProps)
         </section>
 
         <section className="bg-surface-subtle px-4 py-16 sm:px-6 lg:px-8">
+          <div className="mx-auto w-full max-w-6xl">
+            <h2 className="font-display text-3xl font-bold tracking-tight text-foreground">
+              {landing.includes?.title || "Que incluye BusinessOS"}
+            </h2>
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              {includesItems.map((item) => (
+                <article key={item} className="rounded-2xl border border-border bg-card p-5 shadow-card">
+                  <p className="text-sm leading-relaxed text-text-secondary sm:text-base">{item}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="px-4 py-16 sm:px-6 lg:px-8">
           <div className="mx-auto w-full max-w-6xl">
             <h2 className="font-display text-3xl font-bold tracking-tight text-foreground">{landing.steps.title}</h2>
             <div className="mt-8 grid gap-4 md:grid-cols-3">

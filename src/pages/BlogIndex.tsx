@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
+import { Button } from "@/components/ui/button";
 import { getAllBlogPosts } from "@/lib/content";
 import { BLOG_INDEX_ROUTE } from "@/lib/routes";
 import { buildAbsoluteUrl } from "@/lib/site";
@@ -36,6 +37,9 @@ const BlogIndex = () => {
           <p className="mt-3 max-w-3xl text-base text-text-secondary sm:text-lg">
             Articulos practicos para ordenar ventas, captar mejores leads y escalar procesos comerciales.
           </p>
+          <Button asChild variant="hero-outline" className="mt-5 rounded-full">
+            <Link to="/soluciones">Ver soluciones por rubro</Link>
+          </Button>
         </header>
 
         {posts.length === 0 ? (

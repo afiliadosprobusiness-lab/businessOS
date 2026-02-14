@@ -11,11 +11,13 @@ import BookingConfirmed from "./pages/BookingConfirmed";
 import BlogIndex from "./pages/BlogIndex";
 import BlogPostPage from "./pages/BlogPostPage";
 import LandingPage from "./pages/LandingPage";
+import SolutionsIndexPage from "./pages/SolutionsIndexPage";
 import {
   BLOG_INDEX_ROUTE,
   BLOG_POST_ROUTE,
   DEMO_BOOKING_ROUTE,
   DEMO_CONFIRMATION_ROUTE,
+  SOLUTIONS_ROUTE,
 } from "@/lib/routes";
 
 const queryClient = new QueryClient();
@@ -35,6 +37,7 @@ const App = () => (
             <Route path={DEMO_CONFIRMATION_ROUTE} element={<BookingConfirmed />} />
             <Route path={BLOG_INDEX_ROUTE} element={<BlogIndex />} />
             <Route path={BLOG_POST_ROUTE} element={<BlogPostPage />} />
+            <Route path={SOLUTIONS_ROUTE} element={<SolutionsIndexPage />} />
             <Route path="/:landingSlug" element={<LandingPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

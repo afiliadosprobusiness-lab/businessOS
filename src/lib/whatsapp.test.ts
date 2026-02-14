@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { buildBusinessOSMessage, buildWhatsAppUrl } from "@/lib/whatsapp";
 
 describe("buildWhatsAppUrl", () => {
   it("arma url con mensaje url-encoded", () => {
@@ -7,5 +7,11 @@ describe("buildWhatsAppUrl", () => {
 
     expect(url).toContain("https://wa.me/");
     expect(url).toContain("text=Hola%20BusinessOS");
+  });
+
+  it("crea mensaje estandar con nicho y ciudad", () => {
+    const message = buildBusinessOSMessage("Odontologos", "Lima");
+
+    expect(message).toBe("Hola, quiero implementar BusinessOS para odontologos en lima");
   });
 });
