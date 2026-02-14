@@ -91,6 +91,9 @@ const ScheduleDemo = () => {
                   href={whatsappFallbackUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-cta="whatsapp"
+                  data-source="unknown"
+                  data-variant="unknown"
                   className="font-semibold text-accent underline underline-offset-4 transition-colors duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   haga clic aqui

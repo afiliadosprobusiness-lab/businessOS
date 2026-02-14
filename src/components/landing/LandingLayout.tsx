@@ -9,14 +9,14 @@ import { SOLUTIONS_ROUTE } from "@/lib/routes";
 interface LandingLayoutProps {
   landing: LandingContent;
   whatsappUrl: string;
-  onCtaClick: (variant: string) => void;
 }
 
 const defaultIncludes = BUSINESSOS_MODULES_COPY.includes;
 
-const LandingLayout = ({ landing, whatsappUrl, onCtaClick }: LandingLayoutProps) => {
+const LandingLayout = ({ landing, whatsappUrl }: LandingLayoutProps) => {
   const introParagraphs = landing.intro?.paragraphs || [];
   const includesItems = landing.includes?.items?.length ? landing.includes.items : defaultIncludes;
+  const landingKey = landing.slug;
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-background pb-24">
@@ -33,8 +33,16 @@ const LandingLayout = ({ landing, whatsappUrl, onCtaClick }: LandingLayoutProps)
             <Button asChild variant="hero-outline" size="sm" className="hidden rounded-full sm:inline-flex">
               <Link to={SOLUTIONS_ROUTE}>Soluciones</Link>
             </Button>
-            <Button asChild variant="hero" size="sm" className="rounded-full" onClick={() => onCtaClick("header")}>
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+            <Button asChild variant="hero" size="sm" className="rounded-full">
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-cta="whatsapp"
+                data-source="header"
+                data-variant="unknown"
+                data-landing-key={landingKey}
+              >
                 WhatsApp
               </a>
             </Button>
@@ -60,8 +68,16 @@ const LandingLayout = ({ landing, whatsappUrl, onCtaClick }: LandingLayoutProps)
                 </p>
               ) : null}
 
-              <Button asChild variant="hero" size="lg" className="mt-7 h-12 rounded-full px-8" onClick={() => onCtaClick("hero")}>
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+              <Button asChild variant="hero" size="lg" className="mt-7 h-12 rounded-full px-8">
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cta="whatsapp"
+                  data-source="landing"
+                  data-variant="hero"
+                  data-landing-key={landingKey}
+                >
                   {landing.hero.ctaLabel}
                   <ChevronRight className="h-4 w-4" />
                 </a>
@@ -162,8 +178,17 @@ const LandingLayout = ({ landing, whatsappUrl, onCtaClick }: LandingLayoutProps)
       </main>
 
       <div className="fixed bottom-4 left-0 right-0 z-40 flex justify-center px-4 sm:bottom-6 sm:justify-end sm:px-6 lg:px-8">
-        <Button asChild variant="hero" className="h-12 w-full max-w-sm rounded-full shadow-cta sm:w-auto" onClick={() => onCtaClick("floating")}>
-          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp con BusinessOS">
+        <Button asChild variant="hero" className="h-12 w-full max-w-sm rounded-full shadow-cta sm:w-auto">
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Escribir por WhatsApp con BusinessOS"
+            data-cta="whatsapp"
+            data-source="landing"
+            data-variant="floating"
+            data-landing-key={landingKey}
+          >
             <MessageCircle className="h-5 w-5" />
             Hablar por WhatsApp
           </a>

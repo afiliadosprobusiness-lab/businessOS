@@ -5,6 +5,19 @@ declare global {
   }
 }
 
+export const trackPageView = (pagePath: string, pageTitle: string) => {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: "page_view",
+    page_path: pagePath,
+    page_title: pageTitle,
+  });
+};
+
 export const trackEvent = (eventName: string, params: Record<string, unknown>) => {
   if (typeof window === "undefined") {
     return;

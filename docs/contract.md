@@ -124,6 +124,8 @@ Regla minima por landing:
 
 Variables opcionales soportadas:
 
+- `NEXT_PUBLIC_GTM_ID`
+- `NEXT_PUBLIC_GA4_ID`
 - `VITE_WhatsAppNumber` o `VITE_WHATSAPP_NUMBER`
 - `VITE_WhatsAppDefaultMessage` o `VITE_WHATSAPP_DEFAULT_MESSAGE`
 
@@ -176,10 +178,25 @@ Si existe tracking (`window.gtag` o `window.dataLayer`):
 
 Evento: `cta_whatsapp_click`
 
-- Landings params: `{ page, variant }`
-- Blog params: `{ page, variant, source, slug }`
-  - `variant`: `blog_end` | `blog_inline`
-  - `source`: `blog`
+- Params obligatorios:
+  - `page_path`
+  - `page_title`
+  - `source`: `landing` | `blog` | `header` | `footer` | `unknown`
+  - `variant`: `hero` | `floating` | `blog_end` | `blog_inline` | `unknown`
+- Params opcionales:
+  - `landing_key`
+  - `blog_slug`
+  - `whatsapp_number`
+  - `whatsapp_message` (maximo 100 chars)
+- Restriccion de privacidad:
+  - No enviar informacion sensible o PII del usuario.
+
+Evento: `page_view`
+
+- Se dispara en carga inicial y cambios de ruta SPA.
+- Params minimos: `{ page_path, page_title }`.
+- GA4 se debe gestionar via GTM (no tracking directo hardcodeado en componentes).
+- Evitar doble conteo usando `send_page_view: false` cuando exista envio manual de `page_view`.
 
 ---
 
@@ -201,6 +218,14 @@ Breaking changes requieren:
 
 ## Changelog del Contrato
 
+- Fecha: 2026-02-14
+- Cambio: Se estandariza el payload de `cta_whatsapp_click` (page_path, page_title, source, variant, landing_key/blog_slug opcionales) y se agrega restriccion explicita de no enviar PII.
+- Tipo: Non-breaking
+- Impacto: frontend, tracking, analitica
+- Fecha: 2026-02-14
+- Cambio: Se agregan variables opcionales `NEXT_PUBLIC_GTM_ID` y `NEXT_PUBLIC_GA4_ID`; se formaliza evento `page_view` para navegacion SPA con GTM/GA4.
+- Tipo: Non-breaking
+- Impacto: frontend, tracking, analitica
 - Fecha: 2026-02-14
 - Cambio: Se excluyen archivos plantilla con prefijo `_` del blog publico y del sitemap.
 - Tipo: Non-breaking

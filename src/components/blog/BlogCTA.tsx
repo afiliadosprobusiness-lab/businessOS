@@ -10,7 +10,6 @@ interface BlogCTAProps {
   visualVariant?: "default" | "soft";
   whatsappUrl: string;
   recommendedLanding?: string;
-  onWhatsAppClick: (mode: "blog_end" | "blog_inline") => void;
 }
 
 const BlogCTA = ({
@@ -19,9 +18,9 @@ const BlogCTA = ({
   visualVariant = "default",
   whatsappUrl,
   recommendedLanding,
-  onWhatsAppClick,
 }: BlogCTAProps) => {
   const isSoft = visualVariant === "soft";
+  const recommendedLandingKey = recommendedLanding?.replace(/^\//, "");
   const secondaryTarget = recommendedLanding
     ? recommendedLanding.startsWith("/")
       ? recommendedLanding
@@ -51,8 +50,17 @@ const BlogCTA = ({
       </ul>
 
       <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
-        <Button asChild variant="hero" className="h-11 rounded-full px-5" onClick={() => onWhatsAppClick(mode)}>
-          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+        <Button asChild variant="hero" className="h-11 rounded-full px-5">
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cta="whatsapp"
+            data-source="blog"
+            data-variant={mode}
+            data-blog-slug={slug}
+            data-landing-key={recommendedLandingKey}
+          >
             <MessageCircle className="h-4 w-4" />
             Hablar por WhatsApp
           </a>

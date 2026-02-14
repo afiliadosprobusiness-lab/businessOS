@@ -93,9 +93,21 @@ Sitemap incluye rutas estaticas, blog y landings estaticas + programaticas.
 
 Si existe tracking (`window.gtag` o `window.dataLayer`):
 
-- Evento: `cta_whatsapp_click`
-- Landings: `{ page, variant }`
-- Blog: `{ page, variant: blog_end|blog_inline, source: blog, slug }`
+- Evento estandar de conversion: `cta_whatsapp_click`.
+- Payload de `cta_whatsapp_click`:
+  - `page_path` (pathname actual)
+  - `page_title` (document.title)
+  - `source` (`landing|blog|header|footer|unknown`)
+  - `variant` (`hero|floating|blog_end|blog_inline|unknown`)
+  - `landing_key` (si aplica)
+  - `blog_slug` (si aplica)
+  - `whatsapp_number` (opcional)
+  - `whatsapp_message` (opcional, truncado a 100 chars)
+- Implementacion activa: delegacion global de clicks para `wa.me`, `api.whatsapp.com` y `[data-cta="whatsapp"]` con `dataLayer.push`.
+- Los templates reutilizables de CTA (landing y blog) exponen `data-cta`, `data-source`, `data-variant` y metadatos de contexto (`data-landing-key`, `data-blog-slug`) para clasificar eventos sin editar 50+ archivos.
+- GTM se instala globalmente desde `index.html` usando `NEXT_PUBLIC_GTM_ID`.
+- Los pageviews SPA se empujan en cada cambio de ruta con `event: "page_view"`, `page_path` y `page_title`.
+- GA4 se configura via GTM (sin tracking GA4 directo en codigo), con `NEXT_PUBLIC_GA4_ID` disponible para extensiones futuras.
 
 ## Variables de Entorno
 
@@ -105,9 +117,56 @@ Requeridas:
 
 Opcionales:
 
+- `NEXT_PUBLIC_GTM_ID`
+- `NEXT_PUBLIC_GA4_ID`
 - `VITE_SITE_URL`
 - `VITE_WhatsAppNumber` o `VITE_WHATSAPP_NUMBER`
 - `VITE_WhatsAppDefaultMessage` o `VITE_WHATSAPP_DEFAULT_MESSAGE`
+
+## Como verificar que GA4 esta funcionando en BusinessOS
+
+1. Definir `NEXT_PUBLIC_GTM_ID=GTM-PHMJ4Z9Q` y `NEXT_PUBLIC_GA4_ID=G-6RFTYPV9JK` en el entorno (preview y produccion).
+2. En GTM, abrir Preview (Tag Assistant) para el dominio de BusinessOS y conectar la sesion.
+3. Probar navegacion directa e interna SPA en rutas clave: `/blog`, `/blog/:slug` y landings SEO.
+4. Validar en Tag Assistant:
+   - carga del contenedor `GTM-PHMJ4Z9Q` en todas las rutas,
+   - evento `page_view` en cada cambio de ruta,
+   - ausencia de doble disparo por una sola navegacion.
+5. En GTM configurar GA4:
+   - Google tag / GA4 Configuration con `G-6RFTYPV9JK`,
+   - trigger `All Pages`,
+   - trigger `History Change` para SPA cuando aplique.
+6. Evitar doble pageview:
+   - usar `send_page_view: false` cuando se mantenga envio manual de `page_view` via `dataLayer`.
+7. Validar en `GA4 > Realtime` que llegan los `page_view` con `page_path` correcto.
+
+## Configuracion de conversion WhatsApp en GTM/GA4
+
+1. En GTM crear Trigger:
+   - Tipo: `Custom Event`
+   - Event name: `cta_whatsapp_click`
+2. En GTM crear Tag:
+   - Tipo: `Google Analytics: GA4 Event`
+   - Configuration Tag: Google tag existente (`G-6RFTYPV9JK`)
+   - Event Name: `cta_whatsapp_click`
+   - Event Parameters: `page_path`, `page_title`, `source`, `variant`, `landing_key`, `blog_slug`, `whatsapp_number`, `whatsapp_message`
+   - Trigger: Custom Event `cta_whatsapp_click`
+3. Publicar contenedor GTM.
+4. En GA4:
+   - `Admin > Events`
+   - Marcar `cta_whatsapp_click` como `Conversion`.
+
+## Validacion del evento cta_whatsapp_click
+
+1. Abrir GTM Preview (Tag Assistant) y navegar por el sitio.
+2. Validar clicks:
+   - boton hero en landing SEO,
+   - boton flotante en landing SEO,
+   - CTA final de blog,
+   - CTA inline de blog (cuando exista),
+   - cualquier boton/link que abra `wa.me` o `api.whatsapp.com`.
+3. Confirmar en Tag Assistant que entra `cta_whatsapp_click` con `page_path`, `source` y `variant`.
+4. Confirmar en `GA4 > Realtime` que llega `cta_whatsapp_click` con esos parametros.
 
 ## Seguridad
 
@@ -126,3 +185,5 @@ Opcionales:
 - 2026-02-14: Nueva ruta `/soluciones` con filtros y listado de landings programaticas.
 - 2026-02-14: Mejora profunda de contenidos en posts existentes (estructura, enlaces internos y valor practico).
 - 2026-02-14: Sitemap/robots ampliados para cubrir rutas programaticas.
+- 2026-02-14: Integracion global de GTM (`NEXT_PUBLIC_GTM_ID`) y tracking SPA de `page_view` por cambio de ruta; GA4 preparado via GTM con `NEXT_PUBLIC_GA4_ID`.
+- 2026-02-14: Tracking de conversion WhatsApp migrado a delegacion global con payload estandar `cta_whatsapp_click` y clasificacion via `data-*` en templates de landing/blog.

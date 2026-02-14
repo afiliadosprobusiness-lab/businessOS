@@ -4,7 +4,6 @@ import LandingLayout from "@/components/landing/LandingLayout";
 import NotFound from "@/pages/NotFound";
 import { getLandingBySlug } from "@/lib/content";
 import { buildAbsoluteUrl } from "@/lib/site";
-import { trackEvent } from "@/lib/analytics";
 import { buildBusinessOSMessage, buildWhatsAppUrl } from "@/lib/whatsapp";
 
 const LandingPage = () => {
@@ -19,13 +18,6 @@ const LandingPage = () => {
   const whatsappUrl = buildWhatsAppUrl(
     buildBusinessOSMessage(landing.niche || "negocio", landing.city || "peru"),
   );
-
-  const handleCtaClick = (variant: string) => {
-    trackEvent("cta_whatsapp_click", {
-      page: pagePath,
-      variant,
-    });
-  };
 
   return (
     <>
@@ -42,7 +34,7 @@ const LandingPage = () => {
           inLanguage: "es",
         }}
       />
-      <LandingLayout landing={landing} whatsappUrl={whatsappUrl} onCtaClick={handleCtaClick} />
+      <LandingLayout landing={landing} whatsappUrl={whatsappUrl} />
     </>
   );
 };

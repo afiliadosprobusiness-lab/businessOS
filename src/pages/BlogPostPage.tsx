@@ -6,7 +6,6 @@ import BlogCTA from "@/components/blog/BlogCTA";
 import NotFound from "@/pages/NotFound";
 import { getBlogPostBySlug } from "@/lib/content";
 import { buildAbsoluteUrl } from "@/lib/site";
-import { trackEvent } from "@/lib/analytics";
 import { buildBusinessOSMessage, buildWhatsAppUrl } from "@/lib/whatsapp";
 
 const formatDate = (date: string) => {
@@ -89,15 +88,6 @@ const BlogPostPage = () => {
   const showInlineCta = post.ctaVariant === "soft";
   const splitContent = splitContentForInlineCta(post.body);
 
-  const handleWhatsAppClick = (variant: "blog_end" | "blog_inline") => {
-    trackEvent("cta_whatsapp_click", {
-      page: path,
-      variant,
-      source: "blog",
-      slug: post.slug,
-    });
-  };
-
   return (
     <main className="min-h-screen bg-background px-4 pb-16 pt-10 sm:px-6 lg:px-8">
       <SEO
@@ -150,7 +140,6 @@ const BlogPostPage = () => {
                 visualVariant="soft"
                 whatsappUrl={whatsappUrl}
                 recommendedLanding={post.ctaLanding}
-                onWhatsAppClick={handleWhatsAppClick}
               />
             </div>
             {splitContent.after ? <MarkdownContent content={splitContent.after} className="mt-8" /> : null}
@@ -166,7 +155,6 @@ const BlogPostPage = () => {
             visualVariant={post.ctaVariant === "soft" ? "soft" : "default"}
             whatsappUrl={whatsappUrl}
             recommendedLanding={post.ctaLanding}
-            onWhatsAppClick={handleWhatsAppClick}
           />
         </div>
       </article>
